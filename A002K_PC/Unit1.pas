@@ -274,6 +274,7 @@ type
     RFID_Code6: TMaskEdit;
     RFID_Code7: TMaskEdit;
     RFID_Code8: TMaskEdit;
+    Button16: TButton;
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -307,6 +308,7 @@ type
     procedure BT_NextClick(Sender: TObject);
     procedure Button15Click(Sender: TObject);
     procedure Button14Click(Sender: TObject);
+    procedure Button16Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1283,6 +1285,13 @@ begin
 end;
 
 
+
+procedure TForm1.Button16Click(Sender: TObject);
+var s:string;
+begin
+   s:='$'+StringReplace(RFID_Code1.Text,' ','',[rfReplaceAll]);
+   showmessage(inttostr(strtoint(s)));
+end;
 
 end.
 

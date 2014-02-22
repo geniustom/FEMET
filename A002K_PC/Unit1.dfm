@@ -263,7 +263,7 @@ object Form1: TForm1
               Left = 9
               Top = 18
               Width = 45
-              Height = 18
+              Height = 24
               Ctl3D = False
               EditMask = '0000;4;_'
               Font.Charset = ANSI_CHARSET
@@ -1197,20 +1197,20 @@ object Form1: TForm1
             Left = 3
             Top = 3
             Width = 286
-            Height = 214
+            Height = 220
             Caption = #22739#25187#37197#23565#35373#23450
             TabOrder = 0
             object Label3: TLabel
-              Left = 186
-              Top = 16
+              Left = 189
+              Top = 19
               Width = 70
               Height = 11
               AutoSize = False
               Caption = #37197#23565'RFID'
             end
             object Label4: TLabel
-              Left = 86
-              Top = 16
+              Left = 89
+              Top = 19
               Width = 75
               Height = 12
               AutoSize = False
@@ -1219,7 +1219,7 @@ object Form1: TForm1
             object DeviceMachineCode_8: TEdit
               Left = 83
               Top = 184
-              Width = 60
+              Width = 70
               Height = 21
               BiDiMode = bdLeftToRight
               Ctl3D = False
@@ -1262,7 +1262,7 @@ object Form1: TForm1
             object DeviceMachineCode_7: TEdit
               Left = 83
               Top = 163
-              Width = 60
+              Width = 70
               Height = 21
               BiDiMode = bdLeftToRight
               Ctl3D = False
@@ -1283,7 +1283,7 @@ object Form1: TForm1
             object DeviceMachineCode_6: TEdit
               Left = 83
               Top = 142
-              Width = 60
+              Width = 70
               Height = 21
               BiDiMode = bdLeftToRight
               Ctl3D = False
@@ -1326,7 +1326,7 @@ object Form1: TForm1
             object DeviceMachineCode_5: TEdit
               Left = 83
               Top = 121
-              Width = 60
+              Width = 70
               Height = 21
               BiDiMode = bdLeftToRight
               Ctl3D = False
@@ -1347,7 +1347,7 @@ object Form1: TForm1
             object DeviceMachineCode_4: TEdit
               Left = 83
               Top = 100
-              Width = 60
+              Width = 70
               Height = 21
               BiDiMode = bdLeftToRight
               Ctl3D = False
@@ -1390,7 +1390,7 @@ object Form1: TForm1
             object DeviceMachineCode_3: TEdit
               Left = 83
               Top = 79
-              Width = 60
+              Width = 70
               Height = 21
               BiDiMode = bdLeftToRight
               Ctl3D = False
@@ -1411,7 +1411,7 @@ object Form1: TForm1
             object DeviceMachineCode_2: TEdit
               Left = 83
               Top = 58
-              Width = 60
+              Width = 70
               Height = 21
               BiDiMode = bdLeftToRight
               Ctl3D = False
@@ -1454,7 +1454,7 @@ object Form1: TForm1
             object DeviceMachineCode_1: TEdit
               Left = 83
               Top = 37
-              Width = 60
+              Width = 70
               Height = 21
               BiDiMode = bdLeftToRight
               Ctl3D = False
@@ -1473,157 +1473,166 @@ object Form1: TForm1
               OnKeyPress = DeviceMachineCode_1KeyPress
             end
             object RFID_Code1: TMaskEdit
-              Left = 156
+              Left = 168
               Top = 37
-              Width = 115
+              Width = 93
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
-              EditMask = ' !AA AA AA AA AA;1;'
+              EditMask = ' !AA AA AA AA;1;'
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
               Font.Name = 'Consolas'
               Font.Style = [fsBold]
-              MaxLength = 15
+              MaxLength = 12
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 16
-              Text = '               '
+              Text = ' 12 34 56 78'
             end
             object RFID_Code2: TMaskEdit
-              Left = 156
+              Left = 168
               Top = 58
-              Width = 115
+              Width = 95
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
-              EditMask = ' !AA AA AA AA AA;1;'
+              EditMask = ' !AA AA AA AA;1;'
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
               Font.Name = 'Consolas'
               Font.Style = [fsBold]
-              MaxLength = 15
+              MaxLength = 12
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 17
-              Text = '               '
+              Text = '            '
             end
             object RFID_Code3: TMaskEdit
-              Left = 156
+              Left = 168
               Top = 79
-              Width = 115
+              Width = 95
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
-              EditMask = ' !AA AA AA AA AA;1;'
+              EditMask = ' !AA AA AA AA;1;'
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
               Font.Name = 'Consolas'
               Font.Style = [fsBold]
-              MaxLength = 15
+              MaxLength = 12
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 18
-              Text = '               '
+              Text = '            '
             end
             object RFID_Code4: TMaskEdit
-              Left = 156
+              Left = 168
               Top = 100
-              Width = 115
+              Width = 95
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
-              EditMask = ' !AA AA AA AA AA;1;'
+              EditMask = ' !AA AA AA AA;1;'
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
               Font.Name = 'Consolas'
               Font.Style = [fsBold]
-              MaxLength = 15
+              MaxLength = 12
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 19
-              Text = '               '
+              Text = '            '
             end
             object RFID_Code5: TMaskEdit
-              Left = 156
+              Left = 168
               Top = 121
-              Width = 115
+              Width = 95
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
-              EditMask = ' !AA AA AA AA AA;1;'
+              EditMask = ' !AA AA AA AA;1;'
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
               Font.Name = 'Consolas'
               Font.Style = [fsBold]
-              MaxLength = 15
+              MaxLength = 12
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 20
-              Text = '               '
+              Text = '            '
             end
             object RFID_Code6: TMaskEdit
-              Left = 156
+              Left = 168
               Top = 142
-              Width = 115
+              Width = 95
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
-              EditMask = ' !AA AA AA AA AA;1;'
+              EditMask = ' !AA AA AA AA;1;'
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
               Font.Name = 'Consolas'
               Font.Style = [fsBold]
-              MaxLength = 15
+              MaxLength = 12
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 21
-              Text = '               '
+              Text = '            '
             end
             object RFID_Code7: TMaskEdit
-              Left = 156
+              Left = 168
               Top = 163
-              Width = 115
+              Width = 95
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
-              EditMask = ' !AA AA AA AA AA;1;'
+              EditMask = ' !AA AA AA AA;1;'
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
               Font.Name = 'Consolas'
               Font.Style = [fsBold]
-              MaxLength = 15
+              MaxLength = 12
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 22
-              Text = '               '
+              Text = '            '
             end
             object RFID_Code8: TMaskEdit
-              Left = 156
+              Left = 168
               Top = 184
-              Width = 115
+              Width = 95
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
-              EditMask = ' !AA AA AA AA AA;1;'
+              EditMask = ' !AA AA AA AA;1;'
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
               Font.Height = -13
               Font.Name = 'Consolas'
               Font.Style = [fsBold]
-              MaxLength = 15
+              MaxLength = 12
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 23
-              Text = '               '
+              Text = '            '
             end
+          end
+          object Button16: TButton
+            Left = 6
+            Top = 234
+            Width = 75
+            Height = 25
+            Caption = 'Button16'
+            TabOrder = 1
+            OnClick = Button16Click
           end
         end
         object TabSheet5: TTabSheet
@@ -1640,7 +1649,7 @@ object Form1: TForm1
             Left = 208
             Top = 6
             Width = 78
-            Height = 18
+            Height = 21
             Ctl3D = False
             Enabled = False
             Font.Charset = ANSI_CHARSET
@@ -1697,7 +1706,7 @@ object Form1: TForm1
               Left = 84
               Top = 87
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1714,7 +1723,7 @@ object Form1: TForm1
               Left = 84
               Top = 64
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1731,7 +1740,7 @@ object Form1: TForm1
               Left = 84
               Top = 39
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1748,7 +1757,7 @@ object Form1: TForm1
               Left = 84
               Top = 16
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1814,7 +1823,7 @@ object Form1: TForm1
               Left = 84
               Top = 87
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1831,7 +1840,7 @@ object Form1: TForm1
               Left = 84
               Top = 64
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1848,7 +1857,7 @@ object Form1: TForm1
               Left = 84
               Top = 39
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1865,7 +1874,7 @@ object Form1: TForm1
               Left = 84
               Top = 16
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
