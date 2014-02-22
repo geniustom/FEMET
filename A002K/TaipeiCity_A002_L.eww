@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\DriverLib\DriverLib.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TaipeiCity_A002_L_1007.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>BuildAll</name>
+      <member>
+        <project>DriverLib</project>
+        <configuration>Debug</configuration>
+      </member>
+      <member>
+        <project>TaipeiCity_A002_L_1007</project>
+        <configuration>Debug</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

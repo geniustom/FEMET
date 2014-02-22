@@ -1,0 +1,402 @@
+#include <msp430x54x.h>
+
+EXTERN RTC_RMem
+EXTERN RTC_WMem
+
+PUBLIC I2CCLOCK_READTIME 
+PUBLIC I2CCLOCK_INIT
+PUBLIC I2CCLOCK_SET  
+//PUBLIC S35390_INIT
+
+;AD部分
+SDA         EQU     BIT1    ;AD數據線ADDATA
+SCL         EQU     BIT2    ;AD時鐘線ADCLK
+#define     SDA_OUT      P3OUT
+#define     SCL_OUT      P3OUT
+#define     SDA_IN       P3IN
+#define     SCL_IN       P3N
+#define     SDA_DIR      P3DIR
+#define     SCL_DIR      P3DIR
+;*******************************
+;RAM區域定義
+#define     ETEMP        R9
+//TEMP        EQU          200H   ;讀時間的RAM區首地址
+//TEMP11      EQU          220H   ;寫時間的RAM區首地址
+;------------------------------------------------------------------------------ 
+            ORG     08000h                  ; Progam Start 
+;------------------------------------------------------------------------------ 
+/*
+;**************************************************************
+;*********************調試區*********************************
+;------------------------------------------------------------------------------
+;需要對S35390A進行初始化，並且把SDA和SCK輸出態，
+;完成對S35390A後，把SDA和SCK輸入態
+;本部分需要最終給主程序提供4個副程式，以便調用，
+;一個是初始化副程式，一個是設置時間的程式，一個是讀時間的程式，一個是輸出一個1赫茲的方波的程式
+;------------------------------------------------------------------------------
+    //BIS.B   #SDA,&SDA_DIR            ;SDA為輸出態
+    //BIS.B   #SCL,&SCL_DIR            ;SCL為輸出態
+
+    //CALL    #I2CCLOCK_INIT          ;初始化S35390A
+    //CALL    #D500MS
+    //CALL    #I2CCLOCK_SET           ;設置S35390A
+LMRTEST
+    CALL    #I2CCLOCK_READTIME      ;讀取S35390A的時間
+   NOP
+    CALL    #I2CCLOCK_1HZ           ;設置S35390A的INIT2輸出一個1赫茲的方波
+    BIC.B   #SDA,&SDA_DIR         ;SDA為輸入態
+    BIC.B   #SCL,&SCL_DIR         ;SCL為輸入態        
+    JMP     LMRTEST
+*/
+;*********************調試區*********************************
+;**************************************************************
+
+;------------------------------------------------------------------------------ 
+;I2C匯流排的S35390A的讀寫副程式
+;------------------------------------------------------------------------------    
+;程式名稱：I2CCLOCK_INIT
+;功能：設置S35390A:24小時的顯示格式
+;使用：R9、R11、R12、R15、200H
+;調用：D500MS、I2CSTART、I2CSTOP、WRITEBYTE、ADREAD、
+;影響：
+;入口：
+;出口：
+I2CCLOCK_INIT  
+    BIS.B   #SDA,&SDA_DIR            ;SDA為輸出態
+    BIS.B   #SCL,&SCL_DIR            ;SCL為輸出態
+    
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    MOV     #03H,R12                ;迴圈2次，如果S35390A還是不好則繼續下一個
+INITLOOP1
+    //CALL    #D500MS
+    MOV.B   #060H,ETEMP		    ;SEND ADRESS TO S35390A
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    MOV.B   #080H,ETEMP              ;RESET S35390A AND 24HOUR DISPLAY
+    CALL    #WRITEBYTE
+    CALL    #I2CSTOP
+
+    MOV     #RTC_WMem,R11
+    MOV.B   #61h,ETEMP		    ;SEND ADRESS AND READ(TIME DATA) COMMAND TO S35390A 
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    CLR     ETEMP
+    CALL    #READBYTE
+    CALL    #NOTXACK
+    CALL    #I2CSTOP
+    DEC     R12
+    JZ      INTI_NEXT 
+    BIT.B   #01H,ETEMP
+    JNZ      INITLOOP1    
+    BIT.B   #02H,ETEMP
+    JNZ      INITLOOP1 
+INTI_NEXT 
+    MOV.B   #060H,ETEMP		    ;SEND ADRESS TO S35390A
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    MOV.B   #040H,ETEMP              ;RESET S35390A AND 24HOUR DISPLAY
+    CALL    #WRITEBYTE
+    CALL    #I2CSTOP
+    RET
+;------------------------------------------------------------------------------ 
+;設置S35390A的年，月，日，星期，小時，分，秒
+;程式名稱：I2CCLOCK_SET
+;功能：設置S35390A的年，月，日，星期，小時，分，秒
+;      把TEMP11~TEMP11+5中的內容（左->右依次是年，月，日，星期，小時，分鐘，秒）寫到S35390A相應的寄存器中
+;      其中星期直接寫00星期，
+;使用：R9、R11、R15、TEMP11~TEMP11+5
+;調用：D500MS、I2CSTART、I2CSTOP、WRITEBYTE、ADREAD、
+;影響：
+;入口：R11為讀取RAM區的位址(共6個資料)
+;出口：
+I2CCLOCK_SET
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    MOV     #RTC_WMem,R11
+    MOV.B   #64H,ETEMP		    ;SEND ADRESS AND WRITE(TIME DATA) COMMAND TO S35390A
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    
+    
+    MOV.B   0(R11),ETEMP              ;WRITE YEAR=08
+    CALL    #WRITEDATA
+    MOV.B   1(R11),ETEMP              ;WRITE MONTH=10
+    CALL    #WRITEDATA
+    NOP
+    MOV.B   2(R11),ETEMP              ;WRITE DATA=08
+    CALL    #WRITEDATA
+    NOP
+    MOV.B   #000H,ETEMP              ;WRITE WEEK=00
+    CALL    #WRITEDATA
+    NOP
+    //判斷是否大於12點，是則加040h  ;WRITE HOUR=23PM
+    CMP.B   #12H,3(R11)             
+    JLO     HOUR_AM
+    ADD.B   #040H,3(R11)
+    MOV.B   3(R11),ETEMP
+    CALL    #WRITEDATA
+    JMP     HOUR_PM
+HOUR_AM    
+    MOV.B   3(R11),ETEMP              
+    CALL    #WRITEDATA
+HOUR_PM
+    NOP
+    MOV.B   4(R11),ETEMP              ;WRITE MIN=59
+    CALL    #WRITEDATA
+    NOP
+    MOV.B   5(R11),ETEMP              ;WRITE SEC=51
+    CALL    #WRITEDATA
+    NOP
+    CALL    #I2CSTOP    
+  
+    RET    
+;------------------------------------------------------------------------------ 
+;讀取S35390A的年，月，日，星期，小時，分，秒
+;程式名稱：I2CCLOCK_SET
+;功能：讀取S35390A的年，月，日，星期，小時，分，秒
+;      把S35390A相應的寄存器中（左->右依次是年，月，日，小時，分鐘，秒）讀到TEMP11~TEMP11+5中的內容
+;使用：R9、R11、R15、TEMP~TEMP+6
+;      (共6個資料，分別是TEMP(YEAR)，TEMP+1(MOUTH,TEMP+2(DATA),TEMP+3(HOUR),TEMP+4(MINUTE),TEMP+5(SECOND))
+;調用：I2CSTART、I2CSTOP、WRITEBYTE、ADREAD、WRITEDATA
+;影響：
+;入口：R11為寫入RAM區的位址
+;出口：
+I2CCLOCK_READTIME
+    MOV     #RTC_RMem,R11
+    MOV.B   #07H,R12 
+    MOV.B   #65H,ETEMP		    ;SEND ADRESS AND READ(TIME DATA) COMMAND TO S35390A 
+    CALL    #ADREAD                 // READ YEAT MONTH DATA WEEK HOUR MINUTE SECOND
+    MOV.B   (RTC_RMem+4),(RTC_RMem+3)    
+    MOV.B   (RTC_RMem+5),(RTC_RMem+4) 
+    MOV.B   (RTC_RMem+6),(RTC_RMem+5) 
+    ;(RTC_RMem+3)判斷是否是大於12點，是則減去#040H
+    BIT.B   #040H,(RTC_RMem+3)
+    JZ      RHOUR_AM
+    SUB.B   #040H,(RTC_RMem+3)
+RHOUR_AM    
+    RET 
+/*;------------------------------------------------------------------------------ 
+;設置S35390A的INIT2輸出一個1赫茲的方波，
+;程式名稱：I2CCLOCK_1HZ
+;功能：設置S35390A的INIT2輸出一個1赫茲的方波
+;使用：R9、R11、R15、
+;調用：I2CSTART、I2CSTOP、WRITEBYTE、
+;影響：
+;入口：
+;出口：
+I2CCLOCK_1HZ
+    MOV.B   #062H,ETEMP		    ;SEND ADRESS TO S35390A
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    MOV.B   #008H,ETEMP              ;ENBLE S35390A INIT2 OUTPUT 
+    CALL    #WRITEBYTE
+    CALL    #I2CSTOP
+   
+    MOV.B   #06AH,ETEMP		    ;SEND ADRESS TO S35390A
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    MOV.B   #000H,ETEMP              ;CLEAR INIT2 REG
+    CALL    #WRITEBYTE
+    CALL    #I2CSTOP 
+   
+    MOV.B   #06AH,ETEMP		    ;SEND ADRESS TO S35390A
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    MOV.B   #080H,ETEMP              ;SET S35390A INIT2 OUTPUT 1HZ WAVE
+    CALL    #WRITEBYTE
+    CALL    #I2CSTOP 
+    RET
+*/;------------------------------------------------------------------------------ 
+;從S35390A讀取采輸出寄存器和配置寄存器中的資料副程式
+;ETEMP(R9)、R11(RAM位址)、R12(位元組數)
+;讀出的結果存放在R11指向的RAM中
+ADREAD      
+    DEC     R12
+    JZ      RDONETYPE
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    CLR     ETEMP
+ADRDLOOP0
+    CALL    #READBYTE
+    CALL    #TXACK	 	     ;Send ACK sign to ADS1110:read 8bit data over
+    MOV.B   R9,0(R11)
+    INC     R11
+    DEC     R12
+    JNZ     ADRDLOOP0
+    JMP     FINALTYPE
+RDONETYPE
+    CALL    #I2CSTART
+    CALL    #WRITEBYTE		    ;write one byte to S35390A
+    CLR     ETEMP
+FINALTYPE
+    CALL    #READBYTE
+    MOV.B   R9,0(R11)
+    CALL    #NOTXACK
+    CALL    #I2CSTOP
+    RET
+;------------------------------------------------------------------------------             
+;向S35390A寫一個位元組控制碼（寫的順序B7->B0）包括：地址和命令
+WRITEBYTE
+WR0 
+    MOV     #80H,R5
+WR1	    
+    BIT	    R5,ETEMP 		    ;Bit -> carry
+    JNZ     WR3                     ;IF BIT IS HIGH,goto WR3
+WR2  
+    CALL    #SENDZERO		    ;SEND "0"
+    JMP	    WR4
+WR3	    
+    CALL    #SENDONE       	    ;SEND "1"
+WR4
+    CLRC
+    RRC     R5 			    ;Next address bit
+    CMP     #000h,R5 		    ;Address sent over?
+    JNZ     WR1 		    ;No, continue,goto II4
+    CALL    #RXACK 	            ;read ACK bit
+    RET
+;向S35390A寫一個位元組資料（寫的順序B0->B7），如：年，月，日，星期，小時，分鐘，秒
+WRITEDATA
+WD0 
+    MOV     #001H,R5
+WD1	    
+    BIT	    R5,ETEMP 		    ;Bit -> carry
+    JNZ     WD3                     ;IF BIT IS HIGH,goto WR3
+WD2  
+    CALL    #SENDZERO		    ;SEND "0"
+    JMP	    WD4
+WD3	    
+    CALL    #SENDONE       	    ;SEND "1"
+WD4
+    CLRC
+    RLC     R5 			    ;Next address bit
+    CMP.B     #000h,R5 		    ;Address sent over?
+    JNZ     WD1 		    ;No, continue,goto II4
+    CALL    #RXACK 	            ;read ACK bit
+    RET
+
+
+
+
+;從S35390A讀一個位元組資料
+READBYTE
+    CLR.B   ETEMP
+    CLRC
+    MOV	    #8H,R5
+RDBYTELOOP
+    CALL    #RXACK               ;Read one bit 
+    //RLC.B   ETEMP		     ;transt bit to ETEMP
+    RRC.B   ETEMP
+    DEC     R5 		     ;Bit SUB 1 for count
+    JNZ     RDBYTELOOP 	     ;Is 8bit read over?No,goto RYBYT1
+    //CALL    #TXACK	 	     ;Send ACK sign to ADS1110:read 8bit data over
+    RET
+;I2C通訊開始條件
+I2CSTART
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    //BIS.B   #SDA,&SDA_OUT             ;SDA IS HIGH
+    BIS.B   #SCL,&SCL_OUT             ;SCL IS HIGH
+    NOP
+    NOP
+    //BIS.B   #SCL,&SCL_OUT             ;SCL IS HIGH
+    BIS.B   #SDA,&SDA_OUT             ;SDA IS HIGH
+    NOP
+    NOP
+    BIC.B   #SDA,&SDA_OUT             ;SDA IS LOW
+    NOP
+    NOP
+    BIC.B   #SCL,&SCL_OUT             ;SCL IS LOW//////?
+    NOP
+    NOP                                          ///////?
+    RET
+;I2C通訊停止條件
+I2CSTOP
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    BIC.B   #SDA,&SDA_OUT             ;SDA IS LOW
+    NOP
+    NOP
+    BIS.B   #SCL,&SCL_OUT             ;SCL IS HIGH
+    NOP
+    NOP
+    BIS.B   #SDA,&SDA_OUT             ;SDA IS HIGH
+    NOP
+    NOP
+    //BIC.B   #SCL,&SCL_OUT             ;SCL IS LOW//////?
+    //NOP
+    //NOP                                          //////?
+    RET
+;發送一個“1”
+SENDONE
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    BIS.B   #SDA,&SDA_OUT             ;SDA IS HIGH
+    NOP
+    NOP
+    BIS.B   #SCL,&SCL_OUT             ;SCL IS HIGH
+    NOP
+    NOP
+    BIC.B   #SCL,&SDA_OUT             ;SCL IS LOW
+    NOP
+    NOP
+    RET
+;發送一個“0”
+SENDZERO
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    BIC.B   #SDA,&SDA_OUT             ;SDA IS LOW
+    NOP
+    NOP
+    BIS.B   #SCL,&SCL_OUT             ;SCL IS HIGH
+    NOP
+    NOP
+    BIC.B   #SCL,&SDA_OUT             ;SCL IS LOW
+    NOP
+    NOP
+    RET
+;CPU接受ACK信號
+RXACK
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    BIC.B   #SDA,&SDA_DIR            ;SDA is input
+    NOP
+    NOP
+    BIS.B   #SCL,&SCL_OUT	    ;SCL is high
+    NOP
+    NOP
+    BIT.B   #SDA,&SDA_IN	    ;READ SDA     
+    NOP
+    NOP
+    BIC.B   #SCL,&SCL_OUT            ;SCL IS LOW
+    NOP
+    NOP
+    BIS.B   #SDA,&SDA_OUT	    ;SDA is High
+    NOP
+    NOP
+    BIS.B   #SDA,&SDA_DIR	    ;SDA is output
+    NOP
+    NOP
+    RET  
+;CPU發送ACK信號
+TXACK
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    BIC.B   #SDA,&SDA_OUT             ;SDA IS LOW
+    NOP
+    NOP
+    BIS.B   #SCL,&SCL_OUT             ;SCL IS HIGH
+    NOP
+    NOP
+    BIC.B   #SCL,&SDA_OUT             ;SCL IS LOW
+    NOP
+    NOP
+    RET
+;沒有ACK信號
+NOTXACK
+    //MOV     #WDT_ARST_1000,&WDTCTL  ;復位看門狗,時間為1S by fACLK 
+    //BIC.B   #SDA,&SDA_OUT             ;SDA IS LOW
+    NOP
+    NOP
+    BIS.B   #SCL,&SCL_OUT             ;SCL IS HIGH
+    NOP
+    NOP
+    BIC.B   #SCL,&SDA_OUT             ;SCL IS LOW
+    NOP
+    NOP
+    RET    
+;S35390A程式集完畢***********************************************************************
+
+END
