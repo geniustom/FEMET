@@ -64,7 +64,6 @@ const unsigned char SystemConfig_CTIPreKey[8]            @SystemConfig_Addr+0x51
 const unsigned char SystemConfig_ToneTimeout             @SystemConfig_Addr+0x59=15;
 
 //0,8,0,0,3,8,9,8,9,9
-
 const unsigned char SystemConfig_CTIHelpTel1[16]         @SystemConfig_Addr+0x60={0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
 const unsigned char SystemConfig_CTIHelpTel2[16]         @SystemConfig_Addr+0x70={0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
 const unsigned char SystemConfig_CTIHelpTel3[16]         @SystemConfig_Addr+0x80={0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
@@ -129,6 +128,17 @@ const unsigned char SystemConfig_SPK_Dial                @SystemConfig_Addr+0xE7
 const unsigned char SystemConfig_SPK_DTMF                @SystemConfig_Addr+0xE8=1; 
 const unsigned char SystemConfig_SPK_Voice               @SystemConfig_Addr+0xE9=6; 
 const unsigned char SystemConfig_SPK_Talk                @SystemConfig_Addr+0xEA=6; 
+
+
+//用零散片段的空間來塞
+const unsigned long SystemConfig_RfidCode1               @SystemConfig_Addr+0x0A=0;
+const unsigned long SystemConfig_RfidCode2               @SystemConfig_Addr+0x18=0;
+const unsigned long SystemConfig_RfidCode3               @SystemConfig_Addr+0x1C=0;
+const unsigned long SystemConfig_RfidCode4               @SystemConfig_Addr+0x28=0;
+const unsigned long SystemConfig_RfidCode5               @SystemConfig_Addr+0x2C=0;
+const unsigned long SystemConfig_RfidCode6               @SystemConfig_Addr+0x3C=0;
+const unsigned long SystemConfig_RfidCode7               @SystemConfig_Addr+0x5A=0;
+const unsigned long SystemConfig_RfidCode8               @SystemConfig_Addr+0xEC=0;
 #endif
 
 

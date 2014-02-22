@@ -25,13 +25,13 @@
       <file>$TOOLKIT_DIR$\config\lnkCC430F5133.xcl</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\math.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Debug_Main.r43</file>
       <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.r43</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_WDT.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_RF.r43</file>
       <file>$TOOLKIT_DIR$\config\multiplier32_loc2.xcl</file>
       <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_RF.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_S35390.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_Routin.r43</file>
       <file>$PROJ_DIR$\Debug\Exe\DriverLib.d43</file>
@@ -122,7 +122,7 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 19</file>
+          <file> 20</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -155,11 +155,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 18 58 45 54 40 25 17 21 56 39 57 44 55 53 30 69</file>
+          <file> 18 58 45 54 40 24 17 19 56 39 57 44 55 53 30 69</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 18 58 45 54 40 25 17 21 56 39 57 44 55 53 30 69</file>
+          <file> 18 58 45 54 40 24 17 19 56 39 57 44 55 53 30 69</file>
         </tool>
       </inputs>
     </file>
@@ -283,7 +283,7 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 23</file>
+          <file> 25</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -293,10 +293,6 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 57 44 55 53 30 69</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
           <file> 57 44 55 53 30 69</file>
         </tool>
       </inputs>
@@ -459,7 +455,7 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 16 24 19 37 51 29 46 35 41 33 23 67 27 26 48 52 38 22 20</file>
+          <file> 16 23 20 37 51 29 46 35 41 33 25 67 27 26 48 52 38 22 21</file>
         </tool>
       </inputs>
     </file>
@@ -468,7 +464,7 @@
       <inputs>
         <tool>
           <name>XAR</name>
-          <file> 19 37 51 29 46 35 41 33 23 67 27 26 48 52 38 22</file>
+          <file> 20 37 51 29 46 35 41 33 25 67 27 26 48 52 38 22</file>
         </tool>
       </inputs>
     </file>
