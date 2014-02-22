@@ -8,7 +8,6 @@ uses
 
 type
   TScanPort = class(TForm)
-    Comm1: TComm;
     Shape1: TShape;
     STAT: TLabel;
 
