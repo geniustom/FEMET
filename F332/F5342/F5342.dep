@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>977712145</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\ADC.c</file>
+      <file>$PROJ_DIR$\ADC.h</file>
+      <file>$PROJ_DIR$\Bluetooth.c</file>
+      <file>$PROJ_DIR$\SDCard.c</file>
+      <file>$PROJ_DIR$\Bluetooth.h</file>
+      <file>$PROJ_DIR$\SDCard.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Uart.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Board.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Board.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Buttons.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Buttons.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_SDCard.c</file>
+      <file>$PROJ_DIR$\Debug\List\F5342.map</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_TLV.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Bluetooth.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Buttons.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\F5342.d43</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_UCS.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\CTS_HAL.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Uart.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Main_5342.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdlib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_TLV.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_SDCard.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_PMM.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Board.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Buttons.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_UCS.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\CTS_HAL.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\config\lnk430F5342.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_PMAP.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ff.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\CTS_Layer.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_SDCard.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\SDCard.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Board.r43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430f5342.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\F5342.ulp</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_FLASH.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\ff.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Bluetooth.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\CTS_Layer.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\structure.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\structure.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\F5342.txt</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\config\multiplier32_loc2.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_PMAP.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Main_5342.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_FLASH.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\SDCard.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\mmc.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Uart.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsff.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\mmc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ADC.r43</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsff.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_PMM.r43</file>
+      <file>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_SDCard.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Uart.h</file>
+      <file>$PROJ_DIR$\..\Lib\CTS\CTS_HAL.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_FLASH.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_FLASH.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_MACROS.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMAP.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMAP.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMM.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMM.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_TLV.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_TLV.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_UCS.c</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_UCS.h</file>
+      <file>$PROJ_DIR$\..\Lib\CTS\CTS_HAL.h</file>
+      <file>$PROJ_DIR$\..\Lib\CTS\CTS_Layer.c</file>
+      <file>$PROJ_DIR$\..\Lib\CTS\CTS_Layer.h</file>
+      <file>$PROJ_DIR$\..\Lib\CTS\structure.c</file>
+      <file>$PROJ_DIR$\..\Lib\CTS\structure.h</file>
+      <file>$PROJ_DIR$\..\Lib\FatFs\diskio.h</file>
+      <file>$PROJ_DIR$\..\Lib\FatFs\ff.c</file>
+      <file>$PROJ_DIR$\..\Lib\FatFs\ff.h</file>
+      <file>$PROJ_DIR$\..\Lib\FatFs\ffconf.h</file>
+      <file>$PROJ_DIR$\..\Lib\FatFs\integer.h</file>
+      <file>$PROJ_DIR$\..\Lib\FatFs\mmc.c</file>
+      <file>$PROJ_DIR$\Main_5342.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\ADC.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 12 55 16</file>
+        </tool>
+        <tool>
+          <name>ULP430</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\ADC.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 67</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 96</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 43 31 46 1</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Bluetooth.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 22 97 32 49 68 35 54 19 56 27 59 45 43 31 46 8 34 71 4 70 5 10 91 93 92</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22 97 32 49 68 35 54 19 56 27 59 45 43 31 46 8 34 71 4 70 5 10 91 93 92</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\SDCard.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 62</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 5 22 97 32 49 68 35 54 19 56 27 59 45 43 31 46 8 34 10 70 91 93 92</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 5 22 97 32 49 68 35 54 19 56 27 59 45 43 31 46 8 34 10 70 91 93 92</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Uart.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 22 97 32 49 68 35 54 19 56 27 34 59 45 43 31 46 8 10 70 71 5 91 93 92</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22 97 32 49 68 35 54 19 56 27 34 59 45 43 31 46 8 10 70 71 5 91 93 92</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Board.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 8 34 97 32 49 68 35 54 19 83 75 79</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 8 34 97 32 49 68 35 54 19 83 75 79</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_Buttons.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 29</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 8 34 97 32 49 68 35 54 19 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 8 34 97 32 49 68 35 54 19 10</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5342_Driver\HAL_SDCard.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 70 34 97 32 49 68 35 54 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 70 34 97 32 49 68 35 54 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\F5342.d43</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 12 55</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 36 57 67 50 33 51 42 29 47 58 69 25 24 17 20 60 62 38 63 52 65</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\CTS\CTS_HAL.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 84 88 45 43 31 46 34 97 32 49 68 35 54 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 84 88 45 43 31 46 34 97 32 49 68 35 54 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_FLASH.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 74 34 97 32 49 68 35 54 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 74 34 97 32 49 68 35 54 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMAP.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 58</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 77 34 97 32 49 68 35 54 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 77 34 97 32 49 68 35 54 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMM.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 69</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 79 34 97 32 49 68 35 54 19 75</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 79 34 97 32 49 68 35 54 19 75</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_TLV.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 81 34 97 32 49 68 35 54 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 81 34 97 32 49 68 35 54 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_UCS.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 83 34 97 32 49 68 35 54 19 75</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 83 34 97 32 49 68 35 54 19 75</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\CTS\CTS_Layer.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 51</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 86 84 88 45 43 31 46 34 97 32 49 68 35 54 19 23 56</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 86 84 88 45 43 31 46 34 97 32 49 68 35 54 19 23 56</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\CTS\structure.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 53</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 88 45 43 31 46 34 97 32 49 68 35 54 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 88 45 43 31 46 34 97 32 49 68 35 54 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\FatFs\ff.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 91 93 92 89</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 91 93 92 89</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Lib\FatFs\mmc.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 63</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 89 93 70 34 97 32 49 68 35 54 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 89 93 70 34 97 32 49 68 35 54 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Main_5342.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 60</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 45 43 31 46 79 34 97 32 49 68 35 54 19 75 83 8 10 5 22 56 27 59 70 91 93 92 4 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 43 31 46 79 34 97 32 49 68 35 54 19 75 83 8 10 5 22 56 27 59 70 91 93 92 4 1</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+
