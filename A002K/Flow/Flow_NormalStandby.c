@@ -30,6 +30,8 @@ void CancelLongPress(){
 
 void GetRF(unsigned char ID){
   
+  //========================================================把以下MARK拿掉，壓扣八就具有重啟後並把 Emergency_Flag改為1的功能
+  //*
   if((ID==8)&&(A002State.State!=State_Service)){
     //_DINT();
     unsigned char Emergency_BUF[256];
@@ -41,7 +43,8 @@ void GetRF(unsigned char ID){
     ResetMCUByPMM();
     return;
   }
-  
+  //*/
+  //=======================================================把以上MARK拿掉，壓扣八就具有重啟後並把 Emergency_Flag改為1的功能
   if(A002State.State!=State_NormalStandBy){
     DriverFlag.RFPress=0;  //因按鈕無效，故取消致能
     return;                     //非待機模式不允許接受訊息
@@ -99,9 +102,14 @@ void NormalStandBy_Work(){
     flash_write_Block(Emergency_Addr,Emergency_BUF,256);
     //_EINT();
     SendEventToPC(8);
-    DeleteAllCTIMSG(&CTIMSGQueue);
-    PutCTIMSG(&CTIMSGQueue,0,CTIMSG_GatewayCall,EncodeNowDateTime(),0); //壓扣8為緊急訊息，其餘為傳輸生理資料
-    GoToFlow(State_StartLine);
+    //####################### 優先權最高的傳送52訊息 ######################
+    //DeleteAllCTIMSG(&CTIMSGQueue);
+    //PutCTIMSG(&CTIMSGQueue,0,CTIMSG_GatewayCall,EncodeNowDateTime(),0); //壓扣8為緊急訊息，其餘為傳輸生理資料
+    //GoToFlow(State_StartLine);
+    //####################### 優先權最高的啟動客服 ########################
+    DriverFlag.ServicePress=0;
+    GoToFlow(State_Service);
+    //#####################################################################
     return;
   }   
 //============================================================按下壓扣
