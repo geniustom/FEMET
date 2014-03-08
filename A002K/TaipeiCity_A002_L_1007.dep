@@ -82,6 +82,8 @@
       <file>$PROJ_DIR$\Debug\Obj\SOP.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\RangBuffer.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\MeasureDev.pbi</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_WDT.c</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_Uart.c</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\Cti\Cti.c</name>

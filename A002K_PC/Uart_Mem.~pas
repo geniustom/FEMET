@@ -3,7 +3,8 @@ unit Uart_Mem;
 interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, ExtCtrls, XPMan, StdCtrls, Grids,inifiles, SPComm,DateUtils;
+  Dialogs, ComCtrls, ExtCtrls, XPMan, StdCtrls, Grids,inifiles, SPComm,DateUtils
+  ,Mask;
 
 
 var
@@ -19,11 +20,53 @@ function StrToMem(STR:string):boolean;
 implementation
 uses unit1;
 
+procedure RDIFCode2BUF(BufStart:integer;RFCodeSTR:String);
+var
+  RFCode:integer;
+begin
+   RFCodeSTR:=StringReplace(RFCodeSTR,' ','',[rfReplaceAll]);
+   if RFCodeSTR='' then
+      RFCode:=0
+   else
+      RFCode:=strtoint('$'+RFCodeSTR);
+
+   DATABUF[BufStart]:= RFCode mod 256;      RFCode:=RFCode shr 8;
+   DATABUF[BufStart+1]:= RFCode mod 256;    RFCode:=RFCode shr 8;
+   DATABUF[BufStart+2]:= RFCode mod 256;    RFCode:=RFCode shr 8;
+   DATABUF[BufStart+3]:= RFCode mod 256;
+end;
+
+procedure BUF2RDIFCode(BufStart:integer;out RFCode_STR:TMaskEdit);
+var
+  RFCode:string;
+  BufferValue:int64;
+begin
+   RFCode:=' ';
+   BufferValue:= DATABUF[BufStart]+
+                 DATABUF[BufStart+1]*256+
+                 DATABUF[BufStart+2]*256*256+
+                 DATABUF[BufStart+3]*256*256*256;
+   if (BufferValue=0) or (BufferValue=4294967295) then
+      RFCode:=' 00 00 00 00'
+   else
+   begin
+      RFCode:=RFCode+ inttohex(DATABUF[BufStart+3],2);
+      RFCode:=RFCode+ inttohex(DATABUF[BufStart+2],2);
+      RFCode:=RFCode+ inttohex(DATABUF[BufStart+1],2);
+      RFCode:=RFCode+ inttohex(DATABUF[BufStart+0],2);
+   end;
+   RFCode_STR.Text:=RFCode;
+
+end;
+
+
+
 procedure GetMEMSetting();
 var
 i:integer;
 data:string;
 NowTime:TDatetime;
+RFID_Code:integer;
 begin
    for i:=0 to 255 do
    begin
@@ -130,7 +173,7 @@ begin
    DATABUF[$50]:= GetRadioChecked(form1.NeedPreKey.Checked);
    for i:=1 to length(form1.CTIPreKey.Text) do
       DATABUF[$50+i]:=strtoint(form1.CTIPreKey.Text[i]);
-   DATABUF[$59]:= inttostr(form1.ToneTimeout.Position);
+   DATABUF[$59]:= form1.ToneTimeout.Position;
 
 
    for i:=1 to length(form1.CTINum1.Text) do
@@ -171,6 +214,16 @@ begin
    DATABUF[$E8]:= form1.SPKSel2.ItemIndex;
    DATABUF[$E9]:= form1.SPKSel3.ItemIndex;
    DATABUF[$EA]:= form1.SPKSel4.ItemIndex;
+
+   //RFID CODE==============================
+   RDIFCode2BUF($0A,form1.RFID_Code1.Text);
+   RDIFCode2BUF($18,form1.RFID_Code2.Text);
+   RDIFCode2BUF($1C,form1.RFID_Code3.Text);
+   RDIFCode2BUF($28,form1.RFID_Code4.Text);
+   RDIFCode2BUF($2C,form1.RFID_Code5.Text);
+   RDIFCode2BUF($3C,form1.RFID_Code6.Text);
+   RDIFCode2BUF($5A,form1.RFID_Code7.Text);
+   RDIFCode2BUF($EC,form1.RFID_Code8.Text);
 end;
 
 
@@ -178,6 +231,7 @@ procedure SetMEMSetting();
 var
 i,j:integer;
 data,tempstr:string;
+RFID_Code:integer;
 begin
 
    form1.FirstReport.Checked:=SetRadioChecked(DATABUF[$00]);
@@ -348,6 +402,15 @@ begin
    form1.SPKSel3.ItemIndex:=DATABUF[$E9];
    form1.SPKSel4.ItemIndex:=DATABUF[$EA];
 
+
+   BUF2RDIFCode($0A,form1.RFID_Code1);
+   BUF2RDIFCode($18,form1.RFID_Code2);
+   BUF2RDIFCode($1C,form1.RFID_Code3);
+   BUF2RDIFCode($28,form1.RFID_Code4);
+   BUF2RDIFCode($2C,form1.RFID_Code5);
+   BUF2RDIFCode($3C,form1.RFID_Code6);
+   BUF2RDIFCode($5A,form1.RFID_Code7);
+   BUF2RDIFCode($EC,form1.RFID_Code8);
 end;
 
 function MemToSTR():string;

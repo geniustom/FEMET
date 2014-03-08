@@ -9,9 +9,9 @@ void InitPortOutput(){
 void InitPortDirection(){
   P1DIR = 0x00;     //設定為輸入
   P2DIR = 0x00;     //設定為輸入
-  P3DIR = RTC_SDA | RTC_SCL |CON_Buzzer | CON_PorG | CON_MIC | CON_SPK | CON_DCDC;
-  //P4DIR = RF_C0 | RF_C1 | RF_C2 | RF_C3 | RF_C4 | RF_C5 | RF_C6 | RF_C7;        //設定為輸出
-  P5DIR = 0x00;     //設定為輸入
+  P3DIR = RTC_SDA | RTC_SCL |CON_Buzzer | CON_SPK | CON_DCDC;
+  //P4DIR = RF_C0 | RF_C1 | RF_C2 | RF_C3 | RF_C4 | RF_C5 | RF_C6 | RF_C7;      //設定為輸出
+  P5DIR = CON_PorG | CON_MIC;                                                   //設定為輸出
   P6DIR = LED_AC | LED_DC | LED_Call | LED_RFLow | LED_LineErr | LED_CallErr;   //設定為輸出
 }
 
@@ -22,14 +22,15 @@ void SetP1InterruptIO(){
   P1IES = 0;
   P1IFG=0;  //清除所有P1中斷期標，避免開機瞬間引發中斷
   //=========打開IO中斷功能 HI:啟用 LO:停用===========
-  P1IE =  (~RF_C8)     |    //I	RF掃描CODE的BIT8
+  P1IE =  (unsigned char)(
+          (~RF_C8)     |    //I	RF掃描CODE的BIT8
           (~RF_C9)     |    //I	RF掃描CODE的BIT9
           (~RF_C10)    |    //I	RF接收(壓扣)
           (~RF_C11)    |    //I	RF接收(壓扣沒電)
           (KEY_Help)   |    //I	求救按鈕
           (KEY_Cancel) |    //I	取消按鈕
           (DET_Busy)   |    //I	忙音偵測PIN
-          (DET_RF);         //I	RF偵測PIN(VT)
+          (DET_RF));         //I	RF偵測PIN(VT)
   //========設定觸發種類 HI:負緣觸發 LO:正緣觸發======  
 
   P1IES = (0*RF_C8)     |    //I	RF掃描CODE的BIT8(無)
@@ -62,8 +63,6 @@ void InitPort(){
 void SetPinSync(IOFlag *Flag){
 //----------------------P3--------------------
   P3OUT=
-        (Flag->Phone0Gateway1 * CON_PorG) | 
-        (Flag->MicState * CON_MIC) |
         (Flag->TentelOn * CON_DCDC)|
         (Flag->SpeakState * CON_SPK);
         
@@ -74,6 +73,10 @@ void SetPinSync(IOFlag *Flag){
   }
 //----------------------P4--------------------
   P4OUT=0x00;                 //不管是不是設定為輸出，P4OUT都為0
+//----------------------P5--------------------
+  P5OUT=
+        (Flag->Phone0Gateway1 * CON_PorG) | 
+        (Flag->MicState * CON_MIC);  
 //----------------------P6--------------------
 }
 

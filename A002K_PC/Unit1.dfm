@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 224
   Top = 164
   BorderStyle = bsDialog
-  Caption = #23429#31471#20027#27231#35373#23450#31243#24335'_Ver 3.14'
+  Caption = #23429#31471#20027#27231#35373#23450#31243#24335'_Ver 3.15'
   ClientHeight = 397
   ClientWidth = 473
   Color = clBtnFace
@@ -62,11 +62,17 @@ object Form1: TForm1
         Left = 50
         Top = 16
         Width = 91
-        Height = 20
+        Height = 23
         Style = csDropDownList
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Consolas'
+        Font.Style = []
         ImeName = #20013#25991' ('#32321#39636') - '#26032#27880#38899
-        ItemHeight = 12
+        ItemHeight = 15
         ItemIndex = 4
+        ParentFont = False
         TabOrder = 0
         Text = 'COM5'
         Items.Strings = (
@@ -85,12 +91,18 @@ object Form1: TForm1
         Left = 50
         Top = 42
         Width = 91
-        Height = 20
+        Height = 23
         Style = csDropDownList
         Enabled = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Consolas'
+        Font.Style = []
         ImeName = #20013#25991' ('#32321#39636') - '#26032#27880#38899
-        ItemHeight = 12
+        ItemHeight = 15
         ItemIndex = 3
+        ParentFont = False
         TabOrder = 1
         Text = '19200'
         Items.Strings = (
@@ -1225,8 +1237,8 @@ object Form1: TForm1
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Arial'
+              Font.Height = -13
+              Font.Name = 'Consolas'
               Font.Style = [fsBold]
               ImeMode = imClose
               ParentBiDiMode = False
@@ -1268,8 +1280,8 @@ object Form1: TForm1
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Arial'
+              Font.Height = -13
+              Font.Name = 'Consolas'
               Font.Style = [fsBold]
               ImeMode = imClose
               ParentBiDiMode = False
@@ -1289,8 +1301,8 @@ object Form1: TForm1
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Arial'
+              Font.Height = -13
+              Font.Name = 'Consolas'
               Font.Style = [fsBold]
               ImeMode = imClose
               ParentBiDiMode = False
@@ -1332,8 +1344,8 @@ object Form1: TForm1
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Arial'
+              Font.Height = -13
+              Font.Name = 'Consolas'
               Font.Style = [fsBold]
               ImeMode = imClose
               ParentBiDiMode = False
@@ -1353,8 +1365,8 @@ object Form1: TForm1
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Arial'
+              Font.Height = -13
+              Font.Name = 'Consolas'
               Font.Style = [fsBold]
               ImeMode = imClose
               ParentBiDiMode = False
@@ -1396,8 +1408,8 @@ object Form1: TForm1
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Arial'
+              Font.Height = -13
+              Font.Name = 'Consolas'
               Font.Style = [fsBold]
               ImeMode = imClose
               ParentBiDiMode = False
@@ -1417,8 +1429,8 @@ object Form1: TForm1
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Arial'
+              Font.Height = -13
+              Font.Name = 'Consolas'
               Font.Style = [fsBold]
               ImeMode = imClose
               ParentBiDiMode = False
@@ -1460,8 +1472,8 @@ object Form1: TForm1
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
-              Font.Height = -12
-              Font.Name = 'Arial'
+              Font.Height = -13
+              Font.Name = 'Consolas'
               Font.Style = [fsBold]
               ImeMode = imClose
               ParentBiDiMode = False
@@ -1489,12 +1501,12 @@ object Form1: TForm1
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 16
-              Text = ' 12 34 56 78'
+              Text = ' 00 00 00 00'
             end
             object RFID_Code2: TMaskEdit
               Left = 168
               Top = 58
-              Width = 95
+              Width = 93
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
@@ -1508,12 +1520,12 @@ object Form1: TForm1
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 17
-              Text = '            '
+              Text = ' 00 00 00 00'
             end
             object RFID_Code3: TMaskEdit
               Left = 168
               Top = 79
-              Width = 95
+              Width = 93
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
@@ -1527,12 +1539,12 @@ object Form1: TForm1
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 18
-              Text = '            '
+              Text = ' 00 00 00 00'
             end
             object RFID_Code4: TMaskEdit
               Left = 168
               Top = 100
-              Width = 95
+              Width = 93
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
@@ -1546,12 +1558,12 @@ object Form1: TForm1
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 19
-              Text = '            '
+              Text = ' 00 00 00 00'
             end
             object RFID_Code5: TMaskEdit
               Left = 168
               Top = 121
-              Width = 95
+              Width = 93
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
@@ -1565,12 +1577,12 @@ object Form1: TForm1
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 20
-              Text = '            '
+              Text = ' 00 00 00 00'
             end
             object RFID_Code6: TMaskEdit
               Left = 168
               Top = 142
-              Width = 95
+              Width = 93
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
@@ -1584,12 +1596,12 @@ object Form1: TForm1
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 21
-              Text = '            '
+              Text = ' 00 00 00 00'
             end
             object RFID_Code7: TMaskEdit
               Left = 168
               Top = 163
-              Width = 95
+              Width = 93
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
@@ -1603,12 +1615,12 @@ object Form1: TForm1
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 22
-              Text = '            '
+              Text = ' 00 00 00 00'
             end
             object RFID_Code8: TMaskEdit
               Left = 168
               Top = 184
-              Width = 95
+              Width = 93
               Height = 21
               CharCase = ecUpperCase
               Ctl3D = False
@@ -1622,17 +1634,8 @@ object Form1: TForm1
               ParentCtl3D = False
               ParentFont = False
               TabOrder = 23
-              Text = '            '
+              Text = ' 00 00 00 00'
             end
-          end
-          object Button16: TButton
-            Left = 6
-            Top = 234
-            Width = 75
-            Height = 25
-            Caption = 'Button16'
-            TabOrder = 1
-            OnClick = Button16Click
           end
         end
         object TabSheet5: TTabSheet
@@ -1649,7 +1652,7 @@ object Form1: TForm1
             Left = 208
             Top = 6
             Width = 78
-            Height = 21
+            Height = 18
             Ctl3D = False
             Enabled = False
             Font.Charset = ANSI_CHARSET
@@ -1706,7 +1709,7 @@ object Form1: TForm1
               Left = 84
               Top = 87
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1723,7 +1726,7 @@ object Form1: TForm1
               Left = 84
               Top = 64
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1740,7 +1743,7 @@ object Form1: TForm1
               Left = 84
               Top = 39
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1757,7 +1760,7 @@ object Form1: TForm1
               Left = 84
               Top = 16
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1823,7 +1826,7 @@ object Form1: TForm1
               Left = 84
               Top = 87
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1840,7 +1843,7 @@ object Form1: TForm1
               Left = 84
               Top = 64
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1857,7 +1860,7 @@ object Form1: TForm1
               Left = 84
               Top = 39
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1874,7 +1877,7 @@ object Form1: TForm1
               Left = 84
               Top = 16
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText

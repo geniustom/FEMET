@@ -75,6 +75,7 @@
       <file>$TOOLKIT_DIR$\inc\dlib\c\xtgmath.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_Led.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Debug_Main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\DriverLib.pbd</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\Driver_Alarm.c</name>
@@ -273,6 +274,10 @@
         </tool>
       </outputs>
       <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41 55 43 45 64 30</file>
+        </tool>
         <tool>
           <name>ICC430</name>
           <file> 41 55 43 45 64 30</file>

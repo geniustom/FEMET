@@ -16,8 +16,8 @@
 #define RTC_SDA       BIT1    //I/O	RTC的SDA
 #define RTC_SCL       BIT2    //O	RTC的SCL
 #define CON_DCDC      BIT3    //O	DC/DC的RESET PIN
-#define CON_PorG      BIT4    //O	電話/主機切換PIN
-#define CON_MIC       BIT5    //O	MIC開關
+#define UART0_TX      BIT4    //IO	UART0_TX  RFID
+#define UART0_RX      BIT5    //IO	UART0_RX  RFID
 #define CON_Buzzer    BIT6    //O	BUZZER警報器
 #define CON_SPK       BIT7    //O       喇叭控制
 //--------------------------------P4-------------------------
@@ -30,7 +30,8 @@
 #define RF_C6         BIT6    //O	RF掃描CODE的BIT6
 #define RF_C7         BIT7    //O	RF掃描CODE的BIT7
 //--------------------------------P5-------------------------
-
+#define CON_PorG      BIT4    //O	電話/主機切換PIN
+#define CON_MIC       BIT5    //O	MIC開關
 #define UART1_TX      BIT6    //IO	UART1_TX  血壓計
 #define UART1_RX      BIT7    //IO	UART1_RX  血壓計
 

@@ -1,5 +1,6 @@
 #include "DriverLib.h"
 
+void (*COM0CallBack)(unsigned char RX);  //回呼的FUNCTION POINT
 void (*COM1CallBack)(unsigned char RX);  //回呼的FUNCTION POINT
 void (*COM2CallBack)(unsigned char RX);  //回呼的FUNCTION POINT
 void (*COM3CallBack)(unsigned char RX);  //回呼的FUNCTION POINT
@@ -50,6 +51,11 @@ void SetControlReg(unsigned char volatile *UCCTL1,unsigned char volatile *UCBR0,
 
 void OpenUart(unsigned char Port,unsigned long Baudrate,void (*CallBackFunction)(unsigned char)){
   switch (Port){
+    case 0:
+      P3SEL |= BIT4 | BIT5;
+      SetControlReg(&UCA0CTL1,&UCA0BR0,&UCA0BR1,&UCA0MCTL,&UCA0IE,Baudrate); 
+      COM0CallBack=CallBackFunction;
+      break;
     case 1:
       P5SEL |= BIT6 | BIT7;
       SetControlReg(&UCA1CTL1,&UCA1BR0,&UCA1BR1,&UCA1MCTL,&UCA1IE,Baudrate); 
@@ -70,6 +76,12 @@ void OpenUart(unsigned char Port,unsigned long Baudrate,void (*CallBackFunction)
 
 void SendTextToUart(unsigned char Port,const unsigned char *SBUF,unsigned int length){
   switch (Port){
+    case 0:
+      for (int i=0;i<length;i++){
+        while (!(UCA0IFG&UCTXIFG));                                 // USART0 TX buffer ready?
+        UCA0TXBUF = SBUF[i];
+      }
+      break;
     case 1:
       for (int i=0;i<length;i++){
         while (!(UCA1IFG&UCTXIFG));                                 // USART0 TX buffer ready?
@@ -94,6 +106,10 @@ void SendTextToUart(unsigned char Port,const unsigned char *SBUF,unsigned int le
 
 void SendByteToUart(unsigned char Port,unsigned char SBUF){
   switch (Port){
+    case 0:
+      while (!(UCA0IFG&UCTXIFG));                // USCI_A1 TX buffer ready?
+      UCA0TXBUF = SBUF;                          // TX -> RXed character
+      break;
     case 1:
       while (!(UCA1IFG&UCTXIFG));                // USCI_A1 TX buffer ready?
       UCA1TXBUF = SBUF;                          // TX -> RXed character
@@ -109,6 +125,13 @@ void SendByteToUart(unsigned char Port,unsigned char SBUF){
   }
 }
 
+
+#pragma vector=USCI_A0_VECTOR
+__interrupt void USCI0_ISR(void)
+{
+  unsigned char RX=UCA0RXBUF;
+  COM0CallBack(RX);
+}
 
 #pragma vector=USCI_A1_VECTOR
 __interrupt void USCI1_ISR(void)
