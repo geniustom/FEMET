@@ -7,7 +7,7 @@
 #include "TENTEL\Tentel.h"
 #include "Measuredev\Measuredev.h"
 
-#define VER "3.80"
+#define VER "4.00"
 
 #define DS    1               //傳輸成功
 #define DF    0               //傳輸失敗
@@ -78,6 +78,7 @@ extern void AddVoice();
 extern void InitAllAlarm();
 extern void ProcessFEMETCMD(unsigned char BUF);
 extern void SendEventToPC(unsigned char EventNum);
+extern void SendRFIDToPC(unsigned long RFID);
 //===========================================SOP========================================================
 extern void CheckSOPMode();
 //===========================================MAIN=======================================================

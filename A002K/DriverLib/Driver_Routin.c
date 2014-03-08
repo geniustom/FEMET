@@ -1,9 +1,8 @@
 #include "DriverLib.h"
 
 
-void DriverSecRoutin(){
-
-  
+void DriverSecRoutin(){ //每秒跑一次
+ 
 }
 
 void DriverRoutin(){    //每1ms 跑一次
@@ -23,5 +22,6 @@ void DriverRoutin(){    //每1ms 跑一次
     ResetMCUByPMM();
   }
   
+  ReadRFID();
   DriverFlag.NeedRoutin=1;
 }

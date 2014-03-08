@@ -39,6 +39,7 @@ void InitAllDriver(){
     RF.Code[6]=SystemConfig_MachineID7;
     RF.Code[7]=SystemConfig_MachineID8;
     InitRF(GetRF);
+    InitRFID();
     
     InitBuzzer(SystemConfig_BuzzerMode);
     InitLEDState();

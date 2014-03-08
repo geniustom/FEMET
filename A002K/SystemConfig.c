@@ -181,3 +181,15 @@ void SendEventToPC(unsigned char EventNum){
   SendTextToUart(PCRs232Port,"RFPRESS",7);
   SendByteToUart(PCRs232Port,EventNum);
 }
+
+void SendRFIDToPC(unsigned long RFID){
+  const unsigned char HEX[16]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+  unsigned char RFIDSTR[8];
+  
+  for (int i=0;i<8;i++){
+    RFIDSTR[7-i]=HEX[(RFID%16)];
+    RFID>>=4;
+  }
+  SendTextToUart(PCRs232Port,"RFIDNUM",7);
+  SendTextToUart(PCRs232Port,RFIDSTR,8);
+}

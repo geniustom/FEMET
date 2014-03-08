@@ -1637,6 +1637,61 @@ object Form1: TForm1
               Text = ' 00 00 00 00'
             end
           end
+          object RFIDNUM: TMemo
+            Left = 3
+            Top = 228
+            Width = 169
+            Height = 25
+            Color = clBlack
+            Ctl3D = False
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clLime
+            Font.Height = -13
+            Font.Name = 'Comic Sans MS'
+            Font.Style = [fsBold]
+            ParentCtl3D = False
+            ParentFont = False
+            ReadOnly = True
+            TabOrder = 1
+            WantReturns = False
+            WordWrap = False
+          end
+          object Button16: TButton
+            Left = 180
+            Top = 228
+            Width = 28
+            Height = 25
+            Caption = '>>'
+            TabOrder = 2
+            OnClick = Button16Click
+          end
+          object RFIDSel: TComboBox
+            Left = 216
+            Top = 228
+            Width = 73
+            Height = 25
+            Style = csDropDownList
+            Color = clBlack
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clLime
+            Font.Height = -13
+            Font.Name = #24494#36575#27491#40657#39636
+            Font.Style = [fsBold]
+            ItemHeight = 17
+            ItemIndex = 0
+            ParentFont = False
+            TabOrder = 3
+            Text = #22739#25187#19968
+            Items.Strings = (
+              #22739#25187#19968
+              #22739#25187#20108
+              #22739#25187#19977
+              #22739#25187#22235
+              #22739#25187#20116
+              #22739#25187#20845
+              #22739#25187#19971
+              #22739#25187#20843)
+          end
         end
         object TabSheet5: TTabSheet
           Caption = #38651#35441#35373#23450
@@ -1652,7 +1707,7 @@ object Form1: TForm1
             Left = 208
             Top = 6
             Width = 78
-            Height = 18
+            Height = 21
             Ctl3D = False
             Enabled = False
             Font.Charset = ANSI_CHARSET
@@ -1709,7 +1764,7 @@ object Form1: TForm1
               Left = 84
               Top = 87
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1726,7 +1781,7 @@ object Form1: TForm1
               Left = 84
               Top = 64
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1743,7 +1798,7 @@ object Form1: TForm1
               Left = 84
               Top = 39
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1760,7 +1815,7 @@ object Form1: TForm1
               Left = 84
               Top = 16
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1826,7 +1881,7 @@ object Form1: TForm1
               Left = 84
               Top = 87
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1843,7 +1898,7 @@ object Form1: TForm1
               Left = 84
               Top = 64
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1860,7 +1915,7 @@ object Form1: TForm1
               Left = 84
               Top = 39
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1877,7 +1932,7 @@ object Form1: TForm1
               Left = 84
               Top = 16
               Width = 123
-              Height = 18
+              Height = 21
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText

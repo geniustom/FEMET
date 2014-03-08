@@ -55,6 +55,7 @@ extern void DetRF_VT();
 extern void InitRF(void(*RFCallBack)(unsigned char ID));
 extern unsigned char ByteReverse(unsigned char Input);  //位元反轉
 //=============================UART============================
+#define COM0  0
 #define COM1  1
 #define COM2  2
 #define COM3  3
@@ -203,6 +204,9 @@ typedef struct{
     unsigned char RDModeStateChange;
 //-----------------------主機需要撥號----------------------
     unsigned char NeedReport;
+//-----------------------RFID資訊--------------------------
+    unsigned long RFIDCardNumber;           //讀到的RFID卡號
+    unsigned char RFIDCardDetect;         //不斷更新，若偵測到則為1
 }IOFlag;
 
 extern IOFlag DriverFlag;
@@ -214,5 +218,8 @@ extern void GetPinSync(IOFlag *Flag);
 extern void SetVoice(unsigned char VLevel);
 extern unsigned char GetVoice();
 //============================VOICE===========================
+extern void InitRFID();
+extern void ReadRFID();
+//============================RFID===========================
 
 #endif

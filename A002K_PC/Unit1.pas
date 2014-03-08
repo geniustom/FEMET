@@ -274,6 +274,9 @@ type
     RFID_Code6: TMaskEdit;
     RFID_Code7: TMaskEdit;
     RFID_Code8: TMaskEdit;
+    RFIDNUM: TMemo;
+    Button16: TButton;
+    RFIDSel: TComboBox;
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -307,6 +310,7 @@ type
     procedure BT_NextClick(Sender: TObject);
     procedure Button15Click(Sender: TObject);
     procedure Button14Click(Sender: TObject);
+    procedure Button16Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -807,6 +811,15 @@ begin
       exit;
    end;
 
+   DataIndex:=pos('RFIDNUM',BUF);
+   if (DataIndex>0)then
+   begin
+      RFIDNUM.Lines.Clear;
+      RFIDNUM.Hint:=copy(BUF,8,(BufferLength-7));
+      RFIDNUM.Lines.Text:='['+formatdatetime('hh:mm:ss',now)+']¡G'+RFIDNUM.Hint;
+      exit;
+   end;
+
 
    if pos('CTISUCC',BUF)>0 then
    begin
@@ -1283,6 +1296,27 @@ begin
 end;
 
 
+function GetRFIDSTR(S:string):string;
+var i:integer;
+begin
+   result:='';
+   result:=' '+S[1]+S[2]+' '+S[3]+S[4]+' '+S[5]+S[6]+' '+S[7]+S[8];
+end;
+
+procedure TForm1.Button16Click(Sender: TObject);
+begin
+   case RFIDSel.ItemIndex of
+      0:   RFID_Code1.Text:= GetRFIDSTR(RFIDNUM.Hint);
+      1:   RFID_Code2.Text:= GetRFIDSTR(RFIDNUM.Hint);
+      2:   RFID_Code3.Text:= GetRFIDSTR(RFIDNUM.Hint);
+      3:   RFID_Code4.Text:= GetRFIDSTR(RFIDNUM.Hint);
+      4:   RFID_Code5.Text:= GetRFIDSTR(RFIDNUM.Hint);
+      5:   RFID_Code6.Text:= GetRFIDSTR(RFIDNUM.Hint);
+      6:   RFID_Code7.Text:= GetRFIDSTR(RFIDNUM.Hint);
+      7:   RFID_Code8.Text:= GetRFIDSTR(RFIDNUM.Hint);
+   end;
+
+end;
 
 end.
 
