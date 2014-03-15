@@ -56,6 +56,10 @@ extern void DeleteCTIMSG(CTIMessageQueue *CQ);
 extern void DeleteLastMSG(CTIMessageQueue *CQ);
 extern void DeleteAllCTIMSG(CTIMessageQueue *CQ);
 extern void DeleteRetryData(CTIMessageQueue *CQ);
+
+extern void SendQueueDataToFlash(int *CQ);
+extern void GetQueueDataFromFlash(int *CQ);
+
 extern void SendQueueDataToPc(CTIMessageQueue *CQ);
 extern void SendQueueSizeToPC(CTIMessageQueue *CQ);
 extern void PutCTIMSG(CTIMessageQueue *CQ,unsigned char DeviceID,unsigned char MSGType,unsigned long TimeEncode,unsigned long Data);

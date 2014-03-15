@@ -48,6 +48,38 @@ unsigned char DTMFToChar(unsigned char Digi){
   }
 }
 
+void SendQueueDataToFlash(int *CQ){
+  unsigned char BUF[1024];
+  unsigned char *CTIQueueAddr=(unsigned char *)CQ;
+  unsigned int CTIQueueSize=sizeof(CTIMessageQueue);
+  
+  for(int i=0;i<1024;i++){
+    BUF[i]=0;
+  }
+  
+  for(int i=0;i<CTIQueueSize;i++){
+    unsigned char Data=(unsigned char)*CTIQueueAddr;
+    BUF[i]= Data;
+    *CTIQueueAddr++;
+  }
+
+  flash_erase_multi_segments(QueueData_Addr,1);
+  flash_erase_multi_segments(QueueData_Addr+512,1);
+  flash_write_Block(QueueData_Addr,BUF,CTIQueueSize);
+}
+
+void GetQueueDataFromFlash(int *CQ){
+  unsigned char *CTIQueueAddr=(unsigned char *)CQ;
+  unsigned int CTIQueueSize=sizeof(CTIMessageQueue);
+  
+  for(int i=0;i<CTIQueueSize;i++){
+    *CTIQueueAddr=QueueDataBackup[i];
+    *CTIQueueAddr++;
+  }
+  
+}
+
+
 void SendQueueDataToPc(CTIMessageQueue *CQ){
   unsigned char QueueIndex;
   SendTextToUart(COM3,"GETQU",5);  //DEVICE傳資料給MCU

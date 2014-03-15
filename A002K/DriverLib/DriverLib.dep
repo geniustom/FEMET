@@ -6,8 +6,8 @@
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Debug_Main.c</file>
       <file>$PROJ_DIR$\Driver_Alarm.c</file>
+      <file>$PROJ_DIR$\Debug_Main.c</file>
       <file>$PROJ_DIR$\Driver_Button.c</file>
       <file>$PROJ_DIR$\Driver_DetBusy.c</file>
       <file>$PROJ_DIR$\Driver_Buzzer.c</file>
@@ -18,6 +18,21 @@
       <file>$PROJ_DIR$\Driver_RFID.c</file>
       <file>$PROJ_DIR$\Driver_Routin.c</file>
       <file>$PROJ_DIR$\Driver_RTC.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_RTC.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Uart.r43</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Routin.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_IO.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Flash.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_VoiceLevel.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ymath.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\DriverLib.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Button.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_RF.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_SysCLK.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_DetBusy.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Buzzer.pbi</file>
       <file>$PROJ_DIR$\Driver_S35390.s43</file>
       <file>$PROJ_DIR$\Driver_SysCLK.c</file>
       <file>$PROJ_DIR$\Driver_Uart.c</file>
@@ -35,79 +50,110 @@
       <file>$PROJ_DIR$\Debug\Obj\Driver_RFID.r43</file>
       <file>$TOOLKIT_DIR$\config\lnkCC430F5133.xcl</file>
       <file>$PROJ_DIR$\Debug\Obj\Debug_Main.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Buzzer.r43</file>
-      <file>$PROJ_DIR$\Debug\Exe\DriverLib.d43</file>
       <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Flash.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\DriverLib.d43</file>
       <file>$PROJ_DIR$\DriverLib.h</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Flash.pbi</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Routin.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_VoiceLevel.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_RTC.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
-      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_SysCLK.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_DetBusy.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Button.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_IO.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Buzzer.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Button.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Uart.r43</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ymath.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Flash.r43</file>
-      <file>$PROJ_DIR$\Debug\Exe\DriverLib.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_WDT.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_SysCLK.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_Alarm.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_VoiceLevel.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_WDT.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Buzzer.r43</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-      <file>$TOOLKIT_DIR$\inc\msp430x54x.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Button.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_RF.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_DetBusy.pbi</file>
-      <file>$PROJ_DIR$\PinDefine.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Routin.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_WDT.r43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x54x.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_SysCLK.pbi</file>
       <file>$TOOLKIT_DIR$\config\multiplier32_loc2.xcl</file>
-      <file>$PROJ_DIR$\Debug\Exe\DriverLib.ulp</file>
+      <file>$PROJ_DIR$\PinDefine.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_Alarm.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_Uart.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_WDT.r43</file>
       <file>$PROJ_DIR$\SystemCLK.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_RTC.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_VoiceLevel.r43</file>
+      <file>$PROJ_DIR$\Debug\Exe\DriverLib.ulp</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_DetBusy.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Uart.pbi</file>
       <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Driver_RF.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_RTC.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Driver_Routin.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_Led.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
     </outputs>
-    <file>
-      <name>$PROJ_DIR$\Debug_Main.c</name>
-      <outputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 28</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 25</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
-        </tool>
-      </inputs>
-    </file>
     <file>
       <name>$PROJ_DIR$\Driver_Alarm.c</name>
       <outputs>
         <tool>
           <name>ICC430</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 56 49 15 59 62</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 56 49 15 59 62</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug_Main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 56 49 15 59 62</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 56 49 15 59 62</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Driver_Button.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
           <file> 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 35 71 20 12 53 67 37 38 48 33 46 56 49 15 59 62</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35 71 20 12 53 67 37 38 48 33 46 56 49 15 59 62</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Driver_DetBusy.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 25</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -117,57 +163,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Driver_Button.c</name>
-      <outputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 47</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 44</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 20 36 49 40 56 69 22 23 35 18 33 57 34 41 60 67</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 20 36 49 40 56 69 22 23 35 18 33 57 34 41 60 67</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Driver_DetBusy.c</name>
-      <outputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 43</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 59</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -176,21 +176,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 29</file>
+          <file> 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 46</file>
+          <file> 26</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -199,21 +199,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 50</file>
+          <file> 18</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 32</file>
+          <file> 47</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -222,21 +222,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 17</file>
+          <file> 32</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 45</file>
+          <file> 17</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -245,21 +245,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 19</file>
+          <file> 34</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 71</file>
+          <file> 70</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -268,21 +268,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 70</file>
+          <file> 23</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 58</file>
+          <file> 55</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -291,21 +291,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 26</file>
+          <file> 41</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 24</file>
+          <file> 39</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -314,21 +314,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 61</file>
+          <file> 69</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 37</file>
+          <file> 16</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -341,17 +341,43 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 39</file>
+          <file> 13</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 45</file>
+        </tool>
+        <tool>
+          <name>XAR</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>ULP430</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\DriverLib.r43</name>
+      <inputs>
+        <tool>
+          <name>XAR</name>
+          <file> 43 50 54 52 25 18 32 34 23 41 68 69 36 24 14 63 61</file>
         </tool>
       </inputs>
     </file>
@@ -360,13 +386,13 @@
       <outputs>
         <tool>
           <name>A430</name>
-          <file> 21</file>
+          <file> 36</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>A430</name>
-          <file> 57</file>
+          <file> 56</file>
         </tool>
       </inputs>
     </file>
@@ -375,21 +401,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 42</file>
+          <file> 24</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 53</file>
+          <file> 57</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -398,7 +424,7 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 48</file>
+          <file> 14</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -408,11 +434,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -421,21 +447,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 55</file>
+          <file> 63</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 38</file>
+          <file> 19</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -444,21 +470,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 62</file>
+          <file> 61</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 52</file>
+          <file> 51</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33 57 34 41 60 67</file>
+          <file> 46 56 49 15 59 62</file>
         </tool>
       </inputs>
     </file>
@@ -467,35 +493,9 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 27 63 28 54 47 29 43 50 17 19 70 68 61 21 42 48 55 62 31</file>
+          <file> 42 58 43 50 54 52 25 18 32 34 23 68 69 36 24 14 63 61 44</file>
         </tool>
       </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Debug\Exe\DriverLib.r43</name>
-      <inputs>
-        <tool>
-          <name>XAR</name>
-          <file> 28 54 47 29 43 50 17 19 70 26 68 61 21 42 48 55 62</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>[ROOT_NODE]</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 30</file>
-        </tool>
-        <tool>
-          <name>XAR</name>
-          <file> 51</file>
-        </tool>
-        <tool>
-          <name>ULP430</name>
-          <file> 64</file>
-        </tool>
-      </outputs>
     </file>
   </configuration>
   <configuration>

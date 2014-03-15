@@ -29,7 +29,10 @@ void CancelLongPress(){
 }
 
 void GetRF(unsigned char ID){
-  
+  if(DriverFlag.RFBTIsErr==1){
+    DriverFlag.RFBTIsErr=0;
+    PutCTIMSG(&CTIMSGQueue,ID,CTIMSG_DeviceBTLow,EncodeNowDateTime(),0);
+  }
   //========================================================把以下MARK拿掉，壓扣八就具有重啟後並把 Emergency_Flag改為1的功能
   //*
   if((ID==8)&&(A002State.State!=State_Service)){
@@ -37,8 +40,9 @@ void GetRF(unsigned char ID){
     unsigned char Emergency_BUF[256];
     Emergency_BUF[0]=1;
     flash_erase_multi_segments(Emergency_Addr,1);
-    flash_write_Block(Emergency_Addr,Emergency_BUF,256);
+    flash_write_Block(Emergency_Addr,Emergency_BUF,1);
     //_EINT();    
+    SendQueueDataToFlash((int *)&CTIMSGQueue);
     DriverFlag.ResetSystem=1; 
     ResetMCUByPMM();
     return;
@@ -49,12 +53,7 @@ void GetRF(unsigned char ID){
     DriverFlag.RFPress=0;  //因按鈕無效，故取消致能
     return;                     //非待機模式不允許接受訊息
   }
-  
-  if(DriverFlag.RFBTIsErr==1){
-    DriverFlag.RFBTIsErr=0;
-    PutCTIMSG(&CTIMSGQueue,ID,CTIMSG_DeviceBTLow,EncodeNowDateTime(),0);
-  }
-  
+
   DriverFlag.RFPress=ID;
   SendEventToPC(ID);
 }
@@ -106,6 +105,8 @@ void NormalStandBy_Work(){
     //DeleteAllCTIMSG(&CTIMSGQueue);
     //PutCTIMSG(&CTIMSGQueue,0,CTIMSG_GatewayCall,EncodeNowDateTime(),0); //壓扣8為緊急訊息，其餘為傳輸生理資料
     //GoToFlow(State_StartLine);
+    //##################### 將FLASHROM的訊息塞回QUEUE #####################
+    GetQueueDataFromFlash((int *)&CTIMSGQueue);
     //####################### 優先權最高的啟動客服 ########################
     DriverFlag.ServicePress=0;
     GoToFlow(State_Service);

@@ -32,11 +32,11 @@ void flash_erase_multi_segments (unsigned int Seg_Address,unsigned int Number_of
   char *Flash_Ptr;                      // Flash pointer
   unsigned int i;
   for (i=0;i<=Number_of_segments;i++){
-  Flash_Ptr = (char *) (Seg_Address + 512 * i) ;     // Initialize Flash pointer
-  FCTL3 = FWKEY;                        // Clear Lock bit
-  FCTL1 = FWKEY + ERASE;                // Set Erase bit
-  *Flash_Ptr = 0;                       // Dummy write to erase Flash segment
-  FCTL1 = FWKEY;                        // Clear Erase bit
-  FCTL3 = FWKEY + LOCK;                 // Reset LOCK bit
+    Flash_Ptr = (char *) (Seg_Address + 512 * i) ;     // Initialize Flash pointer
+    FCTL3 = FWKEY;                        // Clear Lock bit
+    FCTL1 = FWKEY + ERASE;                // Set Erase bit
+    *Flash_Ptr = 0;                       // Dummy write to erase Flash segment
+    FCTL1 = FWKEY;                        // Clear Erase bit
+    FCTL3 = FWKEY + LOCK;                 // Reset LOCK bit
   }
 }

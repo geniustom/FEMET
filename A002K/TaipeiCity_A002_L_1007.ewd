@@ -313,7 +313,7 @@
         </option>
         <option>
           <name>SimPspConfigFile</name>
-          <state>###Uninitialized###</state>
+          <state>$TOOLKIT_DIR$\CONFIG\test.psp.config</state>
         </option>
       </data>
     </settings>
