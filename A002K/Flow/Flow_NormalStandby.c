@@ -39,6 +39,7 @@ void GetRF(unsigned char ID){
     //_DINT();
     unsigned char Emergency_BUF[256];
     Emergency_BUF[0]=1;
+    Emergency_BUF[1]=DriverFlag.BTState;
     flash_erase_multi_segments(Emergency_Addr,1);
     flash_write_Block(Emergency_Addr,Emergency_BUF,1);
     //_EINT();    
@@ -95,8 +96,10 @@ void NormalStandBy_Work(){
 //============================================================«ö¤Uºò«æ(À£¦©¤K)
   if(Emergency_Flag==1){
     //_DINT();
+    DriverFlag.BTState=BTState_Flag;
     unsigned char Emergency_BUF[256];
     Emergency_BUF[0]=0;
+    Emergency_BUF[1]=DriverFlag.BTState;
     flash_erase_multi_segments(Emergency_Addr,1);
     flash_write_Block(Emergency_Addr,Emergency_BUF,256);
     //_EINT();
