@@ -30,7 +30,7 @@ void CancelLongPress(){
 
 void GetRF(unsigned char ID){
   if(DriverFlag.RFBTIsErr==1){
-    DriverFlag.RFBTIsErr=0;
+    DriverFlag.RFBTIsErr=0; 
     PutCTIMSG(&CTIMSGQueue,ID,CTIMSG_DeviceBTLow,EncodeNowDateTime(),0);
   }
   //========================================================把以下MARK拿掉，壓扣八就具有重啟後並把 Emergency_Flag改為1的功能
@@ -39,10 +39,13 @@ void GetRF(unsigned char ID){
     //_DINT();
     unsigned char Emergency_BUF[256];
     Emergency_BUF[0]=1;
-    Emergency_BUF[1]=DriverFlag.BTState;
+    for(int i=0;i<8;i++){               //儲存目前所有壓扣電量的狀態
+      Emergency_BUF[1+i]=RF.RFBtIsLow[i];
+    }    
     flash_erase_multi_segments(Emergency_Addr,1);
     flash_write_Block(Emergency_Addr,Emergency_BUF,1);
     //_EINT();    
+    CheckRFBTtoLED();
     SendQueueDataToFlash((int *)&CTIMSGQueue);
     DriverFlag.ResetSystem=1; 
     ResetMCUByPMM();
@@ -96,10 +99,13 @@ void NormalStandBy_Work(){
 //============================================================按下緊急(壓扣八)
   if(Emergency_Flag==1){
     //_DINT();
-    DriverFlag.BTState=BTState_Flag;
+    for(int i=0;i<8;i++){
+      RF.RFBtIsLow[i]=RFBTLow_Flag[i];
+    }
     unsigned char Emergency_BUF[256];
-    Emergency_BUF[0]=0;
-    Emergency_BUF[1]=DriverFlag.BTState;
+    for(int i=0;i<256;i++){
+      Emergency_BUF[i]=0;
+    }
     flash_erase_multi_segments(Emergency_Addr,1);
     flash_write_Block(Emergency_Addr,Emergency_BUF,256);
     //_EINT();

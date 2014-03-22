@@ -83,6 +83,8 @@
       <file>$TOOLKIT_DIR$\config\lnk430F5438.xcl</file>
       <file>$PROJ_DIR$\Debug\Obj\DongleLib.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\VoiceControl.r43</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_IO.c</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_RF.c</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>

@@ -79,6 +79,10 @@
       <file>$PROJ_DIR$\Debug\Obj\Driver_Led.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\Driver_Routin.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\DriverLib.pbd</file>
+      <file>$PROJ_DIR$\..\Flow\Flow_SystemCheck.c</file>
+      <file>$PROJ_DIR$\..\SystemConfig.h</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\Flow\Flow_NormalStandby.c</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>

@@ -8,7 +8,7 @@ const unsigned char QueueDataBackup[1024]                @QueueData_Addr;
 
 #define Emergency_Addr 0xF600
 const unsigned char Emergency_Flag                       @Emergency_Addr=0;
-const unsigned char BTState_Flag                         @Emergency_Addr+0x01=1;
+const unsigned char RFBTLow_Flag[8]                      @Emergency_Addr+0x01;
 
 #define SystemConfig_BackAddr 0xF800
 const unsigned char SystemConfig_BackData[256]           @SystemConfig_BackAddr;
