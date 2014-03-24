@@ -37,16 +37,19 @@ void GetRF(unsigned char ID){
   //*
   if((ID==8)&&(A002State.State!=State_Service)){
     //_DINT();
+    SendQueueDataToFlash((int *)&CTIMSGQueue);
+
     unsigned char Emergency_BUF[256];
+    for(int i=0;i<256;i++){ Emergency_BUF[i]=0; }  
     Emergency_BUF[0]=1;
     for(int i=0;i<8;i++){               //儲存目前所有壓扣電量的狀態
       Emergency_BUF[1+i]=RF.RFBtIsLow[i];
     }    
+
     flash_erase_multi_segments(Emergency_Addr,1);
-    flash_write_Block(Emergency_Addr,Emergency_BUF,1);
-    //_EINT();    
-    CheckRFBTtoLED();
-    SendQueueDataToFlash((int *)&CTIMSGQueue);
+    flash_write_Block(Emergency_Addr,Emergency_BUF,256);
+    //_EINT();        
+    
     DriverFlag.ResetSystem=1; 
     ResetMCUByPMM();
     return;
@@ -103,9 +106,7 @@ void NormalStandBy_Work(){
       RF.RFBtIsLow[i]=RFBTLow_Flag[i];
     }
     unsigned char Emergency_BUF[256];
-    for(int i=0;i<256;i++){
-      Emergency_BUF[i]=0;
-    }
+    for(int i=0;i<256;i++){ Emergency_BUF[i]=0; }
     flash_erase_multi_segments(Emergency_Addr,1);
     flash_write_Block(Emergency_Addr,Emergency_BUF,256);
     //_EINT();
