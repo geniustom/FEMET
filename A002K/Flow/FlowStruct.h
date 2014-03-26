@@ -53,6 +53,7 @@ extern void NormalStandBy_Enter();
 extern void NormalStandBy_Exit();
 extern void NormalStandBy_Work();
 extern void TestQueueSend();
+extern void GetRFID();
 //==================================Flow_Alarm================================
 extern unsigned char NowIsAlarm;
 extern void AlarmStart(unsigned char ID);

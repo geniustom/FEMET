@@ -218,7 +218,8 @@ extern void GetPinSync(IOFlag *Flag);
 extern void SetVoice(unsigned char VLevel);
 extern unsigned char GetVoice();
 //============================VOICE===========================
-extern void InitRFID();
+extern void InitRFID(void (*RFIDCallBack)());
+extern void StartRFIDDet();
 extern void ReadRFID();
 //============================RFID===========================
 

@@ -28,6 +28,30 @@ void CancelLongPress(){
   SendEventToPC(10);
 }
 
+void GetRFID(){
+//============================================================感應到RFID  
+  if(DriverFlag.RFIDCardDetect==1){
+    SendRFIDToPC(DriverFlag.RFIDCardNumber);
+    Delayms(100);
+    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode1) DriverFlag.RFPress=1;
+    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode2) DriverFlag.RFPress=2;
+    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode3) DriverFlag.RFPress=3;
+    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode4) DriverFlag.RFPress=4;
+    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode5) DriverFlag.RFPress=5;
+    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode6) DriverFlag.RFPress=6;
+    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode7) DriverFlag.RFPress=7;
+    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode8) DriverFlag.RFPress=8;
+
+    DriverFlag.RFIDCardDetect=0;
+    if(DriverFlag.RFPress==0){
+      BuzzerBeep(100);
+    }else{
+      GetRF(DriverFlag.RFPress);
+    }
+  } 
+}
+
+
 void GetRF(unsigned char ID){
   if(DriverFlag.RFBTIsErr==1){
     DriverFlag.RFBTIsErr=0; 
@@ -123,26 +147,8 @@ void NormalStandBy_Work(){
     //#####################################################################
     return;
   }   
-//============================================================感應到RFID  
-  if(DriverFlag.RFIDCardDetect==1){
-    SendRFIDToPC(DriverFlag.RFIDCardNumber);
-    Delayms(100);
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode1) DriverFlag.RFPress=1;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode2) DriverFlag.RFPress=2;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode3) DriverFlag.RFPress=3;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode4) DriverFlag.RFPress=4;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode5) DriverFlag.RFPress=5;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode6) DriverFlag.RFPress=6;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode7) DriverFlag.RFPress=7;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode8) DriverFlag.RFPress=8;
-
-    DriverFlag.RFIDCardDetect=0;
-    if(DriverFlag.RFPress==0){
-      BuzzerBeep(100);
-    }else{
-      GetRF(DriverFlag.RFPress);
-    }
-  } 
+//============================================================感應到RFID    
+  GetRFID();
 //============================================================按下壓扣
   if(DriverFlag.RFPress!=0){  
     unsigned char User=DriverFlag.RFPress;
