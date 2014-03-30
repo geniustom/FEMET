@@ -2033,7 +2033,13 @@
     </group>
   </group>
   <file>
+    <name>$PROJ_DIR$\F332_CMD.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\F332_Lib.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\F332_Lib.h</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Main_5310.c</name>

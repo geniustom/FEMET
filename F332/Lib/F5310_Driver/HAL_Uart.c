@@ -151,17 +151,21 @@ void SendByteToUart(unsigned char Port,unsigned char SBUF){
   }
 }
 
-
 #pragma vector=USCI_A0_VECTOR
-__interrupt void USCI0_ISR(void)
+__interrupt void USCI_A0_ISR(void)
 {
   unsigned char RX=UCA0RXBUF;
   if(COM1CallBack!=0)COM1CallBack(RX);
 }
 
 #pragma vector=USCI_A1_VECTOR
-__interrupt void USCI1_ISR(void)
+__interrupt void USCI_A1_ISR(void)
 {
   unsigned char RX=UCA1RXBUF;
   if(COM2CallBack!=0)COM2CallBack(RX);
 }
+
+
+
+
+

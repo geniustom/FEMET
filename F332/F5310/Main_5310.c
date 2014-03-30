@@ -16,7 +16,7 @@ void System_Init(void){
     
     F332_init();
     // Globally enable interrupts
-    __enable_interrupt();
+    _EINT();
 }
 
 
@@ -26,8 +26,10 @@ void System_Init(void){
 void main( void )
 {
   System_Init();
-  F332_PickUp();
-  Delayms(2000);
+  RX_QUEUE_RESET(F332Queue);
+  
+  //F332_PickUp();
+  //Delayms(2000);
   /*
     DTMF_Out('0');
     DTMF_Out('9');
@@ -40,10 +42,15 @@ void main( void )
     DTMF_Out('7');
     DTMF_Out('5');
   */
-    //DTMF_OutList("0917768975",10);
+  //DTMF_OutList("0917768975",10);
   
-  while(1){
-    _NOP();
+  while(1){ 
+    if (RX_QUEUE_EMPTY(F332Queue)){
+      _NOP();
+      //SendTextToUart(F332COM,"Geniustom",9);
+    }else{
+      F332_ProcessCMD(RX_QUEUE_RD(F332Queue));
+    } 
   }
 }
 
