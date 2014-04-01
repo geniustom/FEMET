@@ -1,6 +1,7 @@
 #include "../TaipeiCity_A002_L.h"
 
 #define TentelPort  COM2
+#define DEBUGIO
 
 unsigned char TentelBUF[32];
 unsigned char DTMFBUF[32];
@@ -39,7 +40,10 @@ unsigned char CheckCMDIsSame(unsigned char const *des,unsigned int Length){
   return Same;
 }
 
-
+void DebugIO(){
+  P9DIR |= BIT0;
+  P9OUT ^= BIT0;
+}
 
 void SendPacketCMD(unsigned char *CMD,unsigned int Length){  //將資料打包成CMD並送出
   unsigned char PCMD[32];
@@ -219,6 +223,9 @@ unsigned char GetDTMFString(unsigned int len){
 unsigned char Tentel_GetDTMFDigi(){
   unsigned char Result=0xff;
   if(GYTentel_State.DetDTMF==1){ 
+#ifdef DEBUGIO
+    DebugIO();
+#endif
     Result=GetByte(&GYTentel_State.DTMFBuffer);
     if(GYTentel_State.DTMFBuffer.UsedByte==0){  //若BUFFER沒資料了就把DETDTMF清零
        GYTentel_State.DetDTMF=0;   //復位
@@ -231,6 +238,9 @@ void Tentel_SendDTMFList(unsigned char *STR,unsigned long Length){
   Tentel_SetNumber(STR,Length);
   Delayms(50);
   Tentel_DialOut();
+#ifdef DEBUGIO
+  DebugIO();
+#endif
   Tentel_ClearDTMFBuf();
   Delayms(50);
 }
@@ -243,6 +253,9 @@ void Tentel_SendKey(unsigned char Digi){ //用CMD的方式來丟
   unsigned char CMD[3]={0x61,0x55,0x00};
   CMD[2]=Digi;
   SendPacketCMD(CMD,3);
+#ifdef DEBUGIO
+  DebugIO();
+#endif
 }
 
 void Tentel_SendDTMF(unsigned char Digi){   //用送LIST的方式來丟
@@ -253,6 +266,9 @@ void Tentel_SendDTMF(unsigned char Digi){   //用送LIST的方式來丟
   Tentel_SetNumber(STR,1);
   Delayms(50);
   Tentel_DialOut();
+#ifdef DEBUGIO
+  DebugIO();
+#endif
   Tentel_ClearDTMFBuf();
   Delayms(50);
 }
