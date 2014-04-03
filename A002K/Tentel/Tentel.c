@@ -41,8 +41,18 @@ unsigned char CheckCMDIsSame(unsigned char const *des,unsigned int Length){
 }
 
 void DebugIO(){
-  P9DIR |= BIT0;
+  if(P9DIR==0x00){
+    P9DIR |= 0x01;
+    P9OUT = 0x00;
+  }
   P9OUT ^= BIT0;
+/*
+  if (P9OUT==0x00){
+    while(P9OUT==0x00) P9OUT=0x01;
+  }else{
+    while(P9OUT==0x01) P9OUT=0x00;
+  }
+*/
 }
 
 void SendPacketCMD(unsigned char *CMD,unsigned int Length){  //將資料打包成CMD並送出
@@ -238,9 +248,6 @@ void Tentel_SendDTMFList(unsigned char *STR,unsigned long Length){
   Tentel_SetNumber(STR,Length);
   Delayms(50);
   Tentel_DialOut();
-#ifdef DEBUGIO
-  DebugIO();
-#endif
   Tentel_ClearDTMFBuf();
   Delayms(50);
 }
@@ -252,10 +259,10 @@ void Tentel_SendKey(unsigned char Digi){ //用CMD的方式來丟
   if(Digi=='#'){Digi=0xcb;}
   unsigned char CMD[3]={0x61,0x55,0x00};
   CMD[2]=Digi;
-  SendPacketCMD(CMD,3);
 #ifdef DEBUGIO
   DebugIO();
 #endif
+  SendPacketCMD(CMD,3);
 }
 
 void Tentel_SendDTMF(unsigned char Digi){   //用送LIST的方式來丟
@@ -266,9 +273,6 @@ void Tentel_SendDTMF(unsigned char Digi){   //用送LIST的方式來丟
   Tentel_SetNumber(STR,1);
   Delayms(50);
   Tentel_DialOut();
-#ifdef DEBUGIO
-  DebugIO();
-#endif
   Tentel_ClearDTMFBuf();
   Delayms(50);
 }
@@ -291,6 +295,9 @@ void Tentel_SetNumber(unsigned char const *NUM,unsigned char Length){
 }
 
 void Tentel_DialOut(){
+#ifdef DEBUGIO
+  DebugIO();
+#endif
   SendTextToUart(TentelPort,TCMD_DialOut,4);
 }
 
