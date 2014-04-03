@@ -1,7 +1,7 @@
 #include "../TaipeiCity_A002_L.h"
 
 #define TentelPort  COM2
-#define DEBUGIO
+
 
 unsigned char TentelBUF[32];
 unsigned char DTMFBUF[32];
@@ -233,9 +233,7 @@ unsigned char GetDTMFString(unsigned int len){
 unsigned char Tentel_GetDTMFDigi(){
   unsigned char Result=0xff;
   if(GYTentel_State.DetDTMF==1){ 
-#ifdef DEBUGIO
     DebugIO();
-#endif
     Result=GetByte(&GYTentel_State.DTMFBuffer);
     if(GYTentel_State.DTMFBuffer.UsedByte==0){  //若BUFFER沒資料了就把DETDTMF清零
        GYTentel_State.DetDTMF=0;   //復位
@@ -259,9 +257,7 @@ void Tentel_SendKey(unsigned char Digi){ //用CMD的方式來丟
   if(Digi=='#'){Digi=0xcb;}
   unsigned char CMD[3]={0x61,0x55,0x00};
   CMD[2]=Digi;
-#ifdef DEBUGIO
   DebugIO();
-#endif
   SendPacketCMD(CMD,3);
 }
 
@@ -295,9 +291,7 @@ void Tentel_SetNumber(unsigned char const *NUM,unsigned char Length){
 }
 
 void Tentel_DialOut(){
-#ifdef DEBUGIO
   DebugIO();
-#endif
   SendTextToUart(TentelPort,TCMD_DialOut,4);
 }
 
