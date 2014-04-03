@@ -124,6 +124,7 @@ void F332_ProcessCMD(char RX){
       }
     }
     else if (CompareCMD(TCMD_DialOut,4,UART_BufIndex)){
+      Delayms(1080);
       while (!RX_QUEUE_EMPTY(DTMFQueue)){
         F332_DTMF_Out(RX_QUEUE_RD(DTMFQueue));
       }
