@@ -13,7 +13,7 @@
       <file>$PROJ_DIR$\..\Lib\F5310_Driver\HAL_Uart.h</file>
       <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_FLASH.c</file>
       <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_FLASH.h</file>
-      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_MACROS.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\hal_macros.h</file>
       <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMAP.c</file>
       <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMAP.h</file>
       <file>$PROJ_DIR$\..\Lib\F5xx_F6xx_Core_Lib\HAL_PMM.c</file>
@@ -34,19 +34,19 @@
       <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.h</file>
       <file>$PROJ_DIR$\Debug\Exe\F5310.ulp</file>
       <file>$PROJ_DIR$\Debug\Exe\F5310.txt</file>
-      <file>$TOOLKIT_DIR$\inc\msp430f149.h</file>
-      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\HAL_Uart.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\HAL_UCS.pbi</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\HAL_TLV.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\HAL_PMAP.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_TLV.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_UCS.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Uart.r43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430f149.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
       <file>$PROJ_DIR$\Debug\Obj\HAL_Board.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\HAL_Board.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\HAL_FLASH.pbi</file>
-      <file>$PROJ_DIR$\..\Lib\F5310_Driver\HAL_SDCard.h</file>
       <file>$TOOLKIT_DIR$\inc\msp430f5310.h</file>
+      <file>$PROJ_DIR$\..\Lib\F5310_Driver\HAL_SDCard.h</file>
       <file>$TOOLKIT_DIR$\inc\io430x14x.h</file>
       <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
       <file>$PROJ_DIR$\Debug\Obj\HAL_PMM.pbi</file>
@@ -93,8 +93,8 @@
       <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
       <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\CTS_HAL.r43</file>
-      <file>$PROJ_DIR$\..\Lib\F5310_Driver\HAL_Buttons.h</file>
       <file>$PROJ_DIR$\Debug\Obj\structure.r43</file>
+      <file>$PROJ_DIR$\..\Lib\F5310_Driver\HAL_Buttons.h</file>
       <file>$PROJ_DIR$\main.c</file>
       <file>$PROJ_DIR$\Debug\Obj\CTS_Layer.r43</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
@@ -129,11 +129,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 29 40 74 42 1 83 82 76 72 25 32 73 80 15 7 11</file>
+          <file> 33 39 74 42 1 83 82 76 72 25 28 73 80 15 7 11</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 29 40 74 42 1 83 82 76 72 25 32 73 80 15 7 11</file>
+          <file> 33 39 74 42 1 83 82 76 72 25 28 73 80 15 7 11</file>
         </tool>
       </inputs>
     </file>
@@ -142,7 +142,7 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 30</file>
+          <file> 32</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -152,11 +152,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 84 82 76 72 25 32 73 80 91 81 83 35 29 40 74 42 1 87 39 4</file>
+          <file> 84 82 76 72 25 28 73 80 91 81 83 35 33 39 74 42 1 88 40 4</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 84 82 76 72 25 32 73 80 91 81 83 35 29 40 74 42 1 87 39 4</file>
+          <file> 84 82 76 72 25 28 73 80 91 81 83 35 33 39 74 42 1 88 40 4</file>
         </tool>
       </inputs>
     </file>
@@ -175,11 +175,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 16 20 29 40 74 42 83 82 76 72 25 32 73 80</file>
+          <file> 16 20 33 39 74 42 83 82 76 72 25 28 73 80</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 16 20 29 40 74 42 83 82 76 72 25 32 73 80</file>
+          <file> 16 20 33 39 74 42 83 82 76 72 25 28 73 80</file>
         </tool>
       </inputs>
     </file>
@@ -198,11 +198,7 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 29 40 74 42 6 83 82 76 72 25 32 73 80</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 29 40 74 42 6 83 82 76 72 25 32 73 80</file>
+          <file> 33 39 74 42 6 83 82 76 72 25 28 73 80</file>
         </tool>
       </inputs>
     </file>
@@ -215,17 +211,17 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 34</file>
+          <file> 29</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 29 40 74 42 9 83 82 76 72 25 32 73 80</file>
+          <file> 33 39 74 42 9 83 82 76 72 25 28 73 80</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 29 40 74 42 9 83 82 76 72 25 32 73 80</file>
+          <file> 33 39 74 42 9 83 82 76 72 25 28 73 80</file>
         </tool>
       </inputs>
     </file>
@@ -244,11 +240,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 29 40 74 42 11 83 82 76 72 25 32 73 80 7</file>
+          <file> 33 39 74 42 11 83 82 76 72 25 28 73 80 7</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 29 40 74 42 11 83 82 76 72 25 32 73 80 7</file>
+          <file> 33 39 74 42 11 83 82 76 72 25 28 73 80 7</file>
         </tool>
       </inputs>
     </file>
@@ -261,17 +257,17 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 33</file>
+          <file> 30</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 29 40 74 42 13 83 82 76 72 25 32 73 80</file>
+          <file> 33 39 74 42 13 83 82 76 72 25 28 73 80</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 29 40 74 42 13 83 82 76 72 25 32 73 80</file>
+          <file> 33 39 74 42 13 83 82 76 72 25 28 73 80</file>
         </tool>
       </inputs>
     </file>
@@ -290,11 +286,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 29 40 74 42 15 83 82 76 72 25 32 73 80 7</file>
+          <file> 33 39 74 42 15 83 82 76 72 25 28 73 80 7</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 29 40 74 42 15 83 82 76 72 25 32 73 80 7</file>
+          <file> 33 39 74 42 15 83 82 76 72 25 28 73 80 7</file>
         </tool>
       </inputs>
     </file>
@@ -313,11 +309,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 18 16 20 29 40 74 42 83 82 76 72 25 32 73 80 77 91</file>
+          <file> 18 16 20 33 39 74 42 83 82 76 72 25 28 73 80 77 91</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 18 16 20 29 40 74 42 83 82 76 72 25 32 73 80 77 91</file>
+          <file> 18 16 20 33 39 74 42 83 82 76 72 25 28 73 80 77 91</file>
         </tool>
       </inputs>
     </file>
@@ -326,7 +322,7 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 88</file>
+          <file> 87</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -336,11 +332,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 20 29 40 74 42 83 82 76 72 25 32 73 80</file>
+          <file> 20 33 39 74 42 83 82 76 72 25 28 73 80</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 20 29 40 74 42 83 82 76 72 25 32 73 80</file>
+          <file> 20 33 39 74 42 83 82 76 72 25 28 73 80</file>
         </tool>
       </inputs>
     </file>
@@ -359,11 +355,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 29 40 74 42 11 83 82 76 72 25 32 73 80 7 15 1 4</file>
+          <file> 23 33 39 74 42 11 83 82 76 72 25 28 73 80 7 15 1 4</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 29 40 74 42 11 83 82 76 72 25 32 73 80 7 15 1 4</file>
+          <file> 23 33 39 74 42 11 83 82 76 72 25 28 73 80 7 15 1 4</file>
         </tool>
       </inputs>
     </file>
@@ -382,11 +378,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 29 40 74 42 11 83 82 76 72 25 32 73 80 7 15 1 4</file>
+          <file> 23 33 39 74 42 11 83 82 76 72 25 28 73 80 7 15 1 4</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 29 40 74 42 11 83 82 76 72 25 32 73 80 7 15 1 4</file>
+          <file> 23 33 39 74 42 11 83 82 76 72 25 28 73 80 7 15 1 4</file>
         </tool>
       </inputs>
     </file>
@@ -405,11 +401,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 29 40 74 42 11 83 82 76 72 25 32 73 80 7 15 1 4 23</file>
+          <file> 33 39 74 42 11 83 82 76 72 25 28 73 80 7 15 1 4 23</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 29 40 74 42 11 83 82 76 72 25 32 73 80 7 15 1 4 23</file>
+          <file> 33 39 74 42 11 83 82 76 72 25 28 73 80 7 15 1 4 23</file>
         </tool>
       </inputs>
     </file>
@@ -418,7 +414,7 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 68 78 86 90 36 45 50 46 52 51 30 62 88 79</file>
+          <file> 68 78 86 90 36 45 50 46 52 51 32 62 87 79</file>
         </tool>
       </inputs>
     </file>
@@ -433,7 +429,7 @@
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 68 78 86 90 93 54 36 45 50 46 52 51 30 62 88 79</file>
+          <file> 68 78 86 90 93 54 36 45 50 46 52 51 32 62 87 79</file>
         </tool>
       </inputs>
     </file>
@@ -452,7 +448,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 29 40 74 42 11 83 82 76 72 25 32 73 80 7 15 1 4</file>
+          <file> 33 39 74 42 11 83 82 76 72 25 28 73 80 7 15 1 4</file>
         </tool>
       </inputs>
     </file>
@@ -471,7 +467,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 29 28 74 42 64 63 84 82 76 72 75 32 73 80 91 81 35 66 83 65</file>
+          <file> 33 34 74 42 64 63 84 82 76 72 75 28 73 80 91 81 35 66 83 65</file>
         </tool>
       </inputs>
     </file>

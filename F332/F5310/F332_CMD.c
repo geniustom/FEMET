@@ -69,6 +69,7 @@ unsigned char CMDtoDTMF(unsigned char digi){
   {
     case 0xca:    return 0x2a;  //*
     case 0xcb:    return 0x23;  //#
+    case 0x0a:    return 0x30;  //0
     default:      return digi+0x30;   //other
   }
 }
@@ -112,7 +113,7 @@ void F332_ProcessCMD(char RX){
       SendTextToUart(F332COM,(char *)TRCMD_FactorySetting_5,sizeof(TRCMD_FactorySetting_5));
       ClearUartBUF();
     }
-    //************要求撥出一段DTMF(先設定，還未撥)
+    //************要求撥出一段DTMF(先設定撥號序列，還未撥)
     else if (CompareCMD(TCMD_SendDialList,2,UART_BufIndex)){
       if (RX==CalChkSum(UART_Buf,UART_BufIndex-1)){
         unsigned int DTMF_len=UART_BufIndex-3; //扣掉封包頭與CHKSUM
@@ -123,11 +124,15 @@ void F332_ProcessCMD(char RX){
         ClearUartBUF();
       }
     }
+    //************要求撥出一段DTMF(執行撥號序列)
     else if (CompareCMD(TCMD_DialOut,4,UART_BufIndex)){
-      Delayms(1080);
+      Delayms(200);
+      SendTextToUart(F332COM,(char *)TRCMD_DTMFStart,sizeof(TRCMD_DTMFStart));
+      Delayms(880);
       while (!RX_QUEUE_EMPTY(DTMFQueue)){
         F332_DTMF_Out(RX_QUEUE_RD(DTMFQueue));
       }
+      SendTextToUart(F332COM,(char *)TRCMD_DTMFStop,sizeof(TRCMD_DTMFStop));
       RX_QUEUE_RESET(DTMFQueue);              //清空DTMF BUF
       ClearUartBUF();
     }
@@ -160,4 +165,18 @@ void CMD_GetDTMF(unsigned char Digi){
 
                             
 
-
+/* 輩分用 若之後沒問題可刪除
+      unsigned int DT_Index=0;
+      unsigned char DT_BUF[64];
+      while (!RX_QUEUE_EMPTY(DTMFQueue)){
+        DT_BUF[DT_Index]=RX_QUEUE_RD(DTMFQueue);
+        DT_Index++;
+      }
+      RX_QUEUE_RESET(DTMFQueue);              //清空DTMF BUF
+      ClearUartBUF();
+      Delayms(1080);
+      
+      for(int i=0;i<DT_Index;i++){
+        F332_DTMF_Out(DT_BUF[i]);
+      }
+*/
