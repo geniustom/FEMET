@@ -71,7 +71,7 @@ void ReadRFID(){
   }    
   
   //=====§P©w¬°Timeout=====
-  if (msecCounter-StartTime>1000){ 
+  if (msecCounter-StartTime>500){ 
     ClearRFIDBUF();
   }
 
