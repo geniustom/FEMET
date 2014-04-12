@@ -48,16 +48,16 @@ void ReadRFID(){
 
   if(CMDState==0){
     SendTextToUart(COM0,CMD1,1);
-    Delayms(30);
+    Delayms(40);
     SendTextToUart(COM0,CMD2,5);
-    Delayms(60);
+    Delayms(80);
     SendTextToUart(COM0,CMD3,1);
     CMDState=2;
     StartTime=msecCounter;
   }
 
   //=====判定為有讀到卡號=====
-  if ((CMDState==2)&&(RFIDBUFIndex==26)&&((RFIDBUF[13]==0xFA)||(RFIDBUF[13]==0x4B))){
+  if ((CMDState==2)&&(RFIDBUFIndex==26)&&((RFIDBUF[2]==0x18)||(RFIDBUF[3]==0x09))){
     DriverFlag.RFIDCardNumber=GetRFIDNumber();
     DriverFlag.RFIDCardDetect=1;
     ClearRFIDBUF();
