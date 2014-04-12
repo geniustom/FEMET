@@ -7,6 +7,7 @@ unsigned char RFIDBUF[RFIDBUFLength];
 unsigned int RFIDBUFIndex;
 unsigned char CMDState;
 unsigned long StartTime;
+void(*RFID_CB)();
 
 const unsigned char CMD1[1]={0x55};
 const unsigned char CMD2[5]={0x05,0x09,0x00,0x0E,0x00};
@@ -38,14 +39,23 @@ void ProcessRFIDCMD(unsigned char BUF){
 }
 
 
-void InitRFID(){
+void StartRFIDDet(){
+  TBCCTL0 = CCIE;                          // CCR0 interrupt enabled
+  TBCCR0 = 16384;
+  TBCTL = TBSSEL_1 + MC_2 + TBCLR;         // ACLK, contmode, clear TAR  
+}
+
+void InitRFID(void (*RFIDCallBack)()){
   OpenUart(COM0,9600,ProcessRFIDCMD);  //出貨版才能用
   RFIDBUFIndex=0;
   DriverFlag.RFIDCardDetect=0;
+  RFID_CB=RFIDCallBack;
 }
 
-void ReadRFID(){
 
+
+void ReadRFID(){
+  _EINT();
   if(CMDState==0){
     SendTextToUart(COM0,CMD1,1);
     Delayms(40);
@@ -61,6 +71,7 @@ void ReadRFID(){
     DriverFlag.RFIDCardNumber=GetRFIDNumber();
     DriverFlag.RFIDCardDetect=1;
     ClearRFIDBUF();
+    RFID_CB();
   }
 
   //=====判定為沒讀到卡號=====
@@ -76,6 +87,17 @@ void ReadRFID(){
   }
 
 }
-                           
+
+// Timer B0 interrupt service routine
+#pragma vector=TIMERB0_VECTOR
+__interrupt void TIMER_B0_ISR(void)
+{
+  TBCCR0 += 16384;                         // Add Offset to CCR0
+  if(RFID_CB!=0)  
+    ReadRFID();
+}
+
+            
+
                            
                            

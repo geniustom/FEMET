@@ -39,7 +39,7 @@ void InitAllDriver(){
     RF.Code[6]=SystemConfig_MachineID7;
     RF.Code[7]=SystemConfig_MachineID8;
     InitRF(GetRF);
-    InitRFID();
+    InitRFID(GetRFID);
     
     InitBuzzer(SystemConfig_BuzzerMode);
     InitLEDState();
@@ -135,6 +135,7 @@ int main( void )
   EnableP1P2Int();
 
   SendQueueSizeToPC(&CTIMSGQueue);
+  StartRFIDDet();
   while(1){
     if(DriverFlag.RDMode==1){
       //TestQueueSend();   //§@¶∏∂Î32µßdata®ÏQUEUE

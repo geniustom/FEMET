@@ -22,6 +22,6 @@ void DriverRoutin(){    //¨C1ms ¶]¤@¦¸
     ResetMCUByPMM();
   }
   
-  ReadRFID();
+  //ReadRFID();
   DriverFlag.NeedRoutin=1;
 }
