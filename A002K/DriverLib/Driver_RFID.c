@@ -57,7 +57,7 @@ void ReadRFID(){
   }
 
   //=====判定為有讀到卡號=====
-  if ((CMDState==2)&&(RFIDBUFIndex==26)&&((RFIDBUF[2]==0x18)||(RFIDBUF[3]==0x09))){
+  if ((CMDState==2)&&(RFIDBUFIndex==26)&&((RFIDBUF[2]==0x18)&&(RFIDBUF[3]==0x09)&&(RFIDBUF[5]==0x01)&&(RFIDBUF[6]==0x04))){
     DriverFlag.RFIDCardNumber=GetRFIDNumber();
     DriverFlag.RFIDCardDetect=1;
     ClearRFIDBUF();
