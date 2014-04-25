@@ -248,5 +248,7 @@ void NormalStandBy_Work(){
     GoToFlow(State_SystemCheck); 
     return;  
   }
+//============================================================RFID°»´ú
+  ReadRFID();
 
 }
