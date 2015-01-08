@@ -65,6 +65,10 @@ void GetRF(unsigned char ID){
   SendEventToPC(ID);
 }
 
+void GetOtherRFID(unsigned long RFIDCardNumber){
+
+}
+
 void TestQueueSend(){
   //DeleteAllCTIMSG(&CTIMSGQueue);
   //PutCTIMSG(&CTIMSGQueue,0,CTIMSG_SystemReport,EncodeNowDateTime(),0);
@@ -127,6 +131,7 @@ void NormalStandBy_Work(){
   if(DriverFlag.RFIDCardDetect==1){
     SendRFIDToPC(DriverFlag.RFIDCardNumber);
     Delayms(100);
+    //偵測內定的8組RFID
     if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode1) DriverFlag.RFPress=1;
     if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode2) DriverFlag.RFPress=2;
     if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode3) DriverFlag.RFPress=3;
@@ -138,7 +143,10 @@ void NormalStandBy_Work(){
 
     DriverFlag.RFIDCardDetect=0;
     if(DriverFlag.RFPress==0){
-      BuzzerBeep(100);
+      //抓到RFID，但並不在七組內存的卡號之中
+      //BuzzerBeep(100);
+      DriverFlag.RFPress=9;
+      //GetOtherRFID(DriverFlag.RFIDCardNumber);
     }else{
       GetRF(DriverFlag.RFPress);
     }
@@ -161,8 +169,14 @@ void NormalStandBy_Work(){
       //unsigned char DataFind=MEADEV_GetDeviceData(User);  //單筆血糖傳輸
       unsigned char DataFind=MEADEV_GetDeviceDataMulti(User);  //多筆血糖傳輸
       MEADEV_SetDeviceTime();
-    
+      
+      DataFind=1;        //沒裝置時測試用，記得MARK
+      
       if(DataFind==1){  
+        //有收到資料且為RFID時才會帶卡號到QUEUE
+        if (User==9){
+          PutCTIMSG(&CTIMSGQueue,9,CTIMSG_GetRFIDNum,EncodeNowDateTime(),DriverFlag.RFIDCardNumber);
+        } 
         if(SystemConfig_BatchTransfer>=50){ //若為批次傳送就嗶三聲
           for(int i=0;i<3;i++){
             Delayms(50);

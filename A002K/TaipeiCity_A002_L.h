@@ -25,6 +25,7 @@
 #define CTIMSG_GatewayCall          52  
 #define CTIMSG_SystemReport         53  +UniqueMessage
 #define CTIMSG_DeviceBTLow          54  +UniqueMessage
+#define CTIMSG_GetRFIDNum           55
    
 
 
