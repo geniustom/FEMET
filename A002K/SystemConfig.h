@@ -35,7 +35,7 @@ const unsigned int  SystemConfig_CustomerID              @SystemConfig_Addr+0x20
 const unsigned char SystemConfig_BatchTransfer           @SystemConfig_Addr+0x22=49;  //49:單筆傳送,51:批次傳送
 const unsigned char SystemConfig_BuzzerMode              @SystemConfig_Addr+0x23=1;
 const unsigned char SystemConfig_QueueRetryCount         @SystemConfig_Addr+0x24=10;
-const unsigned char SystemConfig_DataAutoDelete          @SystemConfig_Addr+0x25=0;   //按下壓扣自動刪除 0否 1是
+const unsigned char SystemConfig_DataAutoDelete          @SystemConfig_Addr+0x25=1;   //按下壓扣自動刪除 0否 1是
 const unsigned char SystemConfig_DebugModeEnable         @SystemConfig_Addr+0x26=0;
 
 const unsigned char SystemConfig_AlarmHour1              @SystemConfig_Addr+0x30=8;

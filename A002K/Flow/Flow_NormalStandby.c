@@ -170,7 +170,7 @@ void NormalStandBy_Work(){
       unsigned char DataFind=MEADEV_GetDeviceDataMulti(User);  //多筆血糖傳輸
       MEADEV_SetDeviceTime();
       
-      DataFind=1;        //沒裝置時測試用，記得MARK
+      //DataFind=1;        //沒裝置時測試用，記得MARK
       
       if(DataFind==1){  
         //有收到資料且為RFID時才會帶卡號到QUEUE
