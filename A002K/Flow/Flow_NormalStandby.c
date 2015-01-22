@@ -129,7 +129,7 @@ void NormalStandBy_Work(){
   }   
 //============================================================感應到RFID  
   if(DriverFlag.RFIDCardDetect==1){
-    SendRFIDToPC(DriverFlag.RFIDCardNumber);
+    SendRFIDToPC(DriverFlag.RFIDCardNumber8dig);
     Delayms(100);
     //偵測內定的8組RFID
     if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode1) DriverFlag.RFPress=1;

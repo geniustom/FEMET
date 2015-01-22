@@ -25,6 +25,17 @@ unsigned long GetRFIDNumber(){
   return Num;
 }
 
+unsigned long GetRFIDNumber8Dig(){
+  unsigned long Num;
+  //RFID位置從RFIDBUF[14~18]
+  Num=(unsigned long)RFIDBUF[14] * 256 * 256 * 256
+     +(unsigned long)RFIDBUF[15] * 256 * 256
+     +(unsigned long)RFIDBUF[16] * 256 
+     +(unsigned long)RFIDBUF[17];
+  
+  return Num;
+}
+
 void ClearRFIDBUF(){
   for(int i=0;i<RFIDBUFLength;i++){
     RFIDBUF[i]=0x00;
@@ -60,6 +71,7 @@ void ReadRFID(){
   //=====判定為有讀到卡號=====
   if ((CMDState==2)&&(RFIDBUFIndex==26)&&((RFIDBUF[2]==0x18)&&(RFIDBUF[3]==0x09)&&(RFIDBUF[5]==0x01)&&(RFIDBUF[6]==0x04))){
     DriverFlag.RFIDCardNumber=GetRFIDNumber();
+    DriverFlag.RFIDCardNumber8dig=GetRFIDNumber8Dig();
     DriverFlag.RFIDCardDetect=1;
     ClearRFIDBUF();
   }

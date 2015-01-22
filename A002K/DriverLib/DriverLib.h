@@ -206,6 +206,7 @@ typedef struct{
     unsigned char NeedReport;
 //-----------------------RFID資訊--------------------------
     unsigned long RFIDCardNumber;           //讀到的RFID卡號
+    unsigned long RFIDCardNumber8dig;       //讀到的RFID卡號8碼
     unsigned char RFIDCardDetect;         //不斷更新，若偵測到則為1
 }IOFlag;
 

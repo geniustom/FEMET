@@ -83,6 +83,7 @@
       <file>$PROJ_DIR$\Debug\Obj\Flow_NormalStandby.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_HealthData.r43</file>
       <file>$PROJ_DIR$\MeasureDev\Donglelib\Donglelib.h</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_WDT.c</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
@@ -218,10 +219,6 @@
         <tool>
           <name>BICOMP</name>
           <file> 74</file>
-        </tool>
-        <tool>
-          <name>ICC430</name>
-          <file> 4</file>
         </tool>
       </outputs>
       <inputs>
