@@ -16,7 +16,8 @@ const unsigned char CMD3[1]={0x5A};
 unsigned long GetRFIDNumber(){
   unsigned long Num;
   //RFID¦ì¸m±qRFIDBUF[14~18]
-  Num=(unsigned long)RFIDBUF[14] * 256 * 256 * 256
+  Num=0
+     //(unsigned long)RFIDBUF[14] * 256 * 256 * 256
      +(unsigned long)RFIDBUF[15] * 256 * 256
      +(unsigned long)RFIDBUF[16] * 256 
      +(unsigned long)RFIDBUF[17];
