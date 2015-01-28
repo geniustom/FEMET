@@ -132,14 +132,14 @@ void NormalStandBy_Work(){
     SendRFIDToPC(DriverFlag.RFIDCardNumber8dig);
     Delayms(100);
     //偵測內定的8組RFID
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode1) DriverFlag.RFPress=1;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode2) DriverFlag.RFPress=2;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode3) DriverFlag.RFPress=3;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode4) DriverFlag.RFPress=4;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode5) DriverFlag.RFPress=5;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode6) DriverFlag.RFPress=6;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode7) DriverFlag.RFPress=7;
-    if (DriverFlag.RFIDCardNumber==SystemConfig_RfidCode8) DriverFlag.RFPress=8;
+    if (DriverFlag.RFIDCardNumber8dig==SystemConfig_RfidCode1) DriverFlag.RFPress=1;
+    if (DriverFlag.RFIDCardNumber8dig==SystemConfig_RfidCode2) DriverFlag.RFPress=2;
+    if (DriverFlag.RFIDCardNumber8dig==SystemConfig_RfidCode3) DriverFlag.RFPress=3;
+    if (DriverFlag.RFIDCardNumber8dig==SystemConfig_RfidCode4) DriverFlag.RFPress=4;
+    if (DriverFlag.RFIDCardNumber8dig==SystemConfig_RfidCode5) DriverFlag.RFPress=5;
+    if (DriverFlag.RFIDCardNumber8dig==SystemConfig_RfidCode6) DriverFlag.RFPress=6;
+    if (DriverFlag.RFIDCardNumber8dig==SystemConfig_RfidCode7) DriverFlag.RFPress=7;
+    if (DriverFlag.RFIDCardNumber8dig==SystemConfig_RfidCode8) DriverFlag.RFPress=8;
 
     DriverFlag.RFIDCardDetect=0;
     if(DriverFlag.RFPress==0){
