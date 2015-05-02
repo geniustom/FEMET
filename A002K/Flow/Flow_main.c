@@ -1,5 +1,5 @@
 #include "../TaipeiCity_A002_L.h"
-
+#include <stdlib.h>
 
 CTIMessageQueue CTIMSGQueue;
 StateNode A002State;          //描述目前系統所屬狀態的結構
@@ -29,13 +29,17 @@ void ClearNodeData(CTIMessage *Node){
     Node->DeviceID=0;            //主機是0 第1~8組壓扣為1~8
     Node->MsgType=0;             //訊息種類
     Node->EncodeDateTime=0;     //編碼後的時間    
-    Node->Data=0; //最多9位數字
+    Node->Data=0;               //最多9位數字
     Node->RetryCount=0;
     //================================最後輸出編碼=========
+    //Node->MessageStage1= (unsigned char *)malloc (14);
+    //Node->MessageStage2= (unsigned char *)malloc (14);
+    
     for(int i=0;i<14;i++){
       Node->MessageStage1[i]=0;     // *(主機編號)(資料)
       Node->MessageStage2[i]=0;     // #(壓扣編號)(訊息種類)(時間)(CHKSUM)
     }
+    
 }
 
 unsigned char DTMFToChar(unsigned char Digi){
@@ -49,11 +53,11 @@ unsigned char DTMFToChar(unsigned char Digi){
 }
 
 void SendQueueDataToFlash(int *CQ){
-  unsigned char BUF[1024];
+  unsigned char BUF[QueueDataSize];
   unsigned char *CTIQueueAddr=(unsigned char *)CQ;
   unsigned int CTIQueueSize=sizeof(CTIMessageQueue);
   
-  for(int i=0;i<1024;i++){
+  for(int i=0;i<QueueDataSize;i++){
     BUF[i]=0;
   }
   
@@ -119,14 +123,14 @@ void DeleteRetryData(CTIMessageQueue *CQ){
   }
 }
 
-
-
+int testcount;
 void CreateCTIMSGQueue(CTIMessageQueue *CQ){
   CQ->QRear=0;
   CQ->QFront=0;
   CQ->Length=0;
   for(int i=0;i<CTIMessageQueueLength;i++){
-    ClearNodeData(&CQ->MSGList[i]);
+    ClearNodeData(&(CQ->MSGList[i]));
+    testcount++;
   }
 }
 

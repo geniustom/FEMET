@@ -7,11 +7,13 @@
 #include "TENTEL\Tentel.h"
 #include "Measuredev\Measuredev.h"
 
-#define VER "4.10"
+#define VER "4.20"
 
 #define DS    1               //傳輸成功
 #define DF    0               //傳輸失敗
 
+//原共7583每個Queue node 42*16=678 byte 若採省DTMF方案 因28*64=1792 AlarmTable已省1260 =>7583-678-1260+1792=7437 夠用
+//原共7583每個Queue node 42*16=678 byte DTMF不動 因42*64=2688 AlarmTable已省1260 => 7583-678-1260+2688=8333 還須瘦身750 byte
 
 #define CTIMessageQueueLength 16
 #define UniqueMessage         100   //代表此事件不可重複
@@ -36,10 +38,12 @@ typedef struct{
     unsigned char MsgType;             //訊息種類
     unsigned long EncodeDateTime;     //編碼後的時間    
     unsigned long Data; //最多9位數字
-    unsigned int  RetryCount;
+    unsigned char RetryCount;
     //================================最後輸出編碼=========
     unsigned char MessageStage1[14];   // *(主機編號)(資料)
     unsigned char MessageStage2[14];   // #(壓扣編號)(訊息種類)(時間)(CHKSUM)
+    //unsigned char *MessageStage1;   // *(主機編號)(資料)
+    //unsigned char *MessageStage2;   // #(壓扣編號)(訊息種類)(時間)(CHKSUM)
 }CTIMessage;
 
 typedef struct{

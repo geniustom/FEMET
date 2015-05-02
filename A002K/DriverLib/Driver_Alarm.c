@@ -7,34 +7,85 @@ AlarmSetting SystemAlarm;
 void (*AlarmStartCallBackFP)(unsigned char AlarmID);  //回呼的FUNCTION POINT
 void (*AlarmStopCallBackFP)();  //回呼的FUNCTION POINT
 
+void ClearAlarmTable(){
+  for(int i=0;i<180;i++){
+    SystemAlarm.AlarmTable[i]=0;
+  }
+}
+
+void SetAlarmTable(int index,unsigned char value){
+  unsigned int  part=index >> 3;  //除8
+  unsigned char bit;
+  unsigned char offset=index%8;
+
+  switch (offset) {
+    case 0 : bit=BIT0;
+    case 1 : bit=BIT1;
+    case 2 : bit=BIT2;
+    case 3 : bit=BIT3;
+    case 4 : bit=BIT4;
+    case 5 : bit=BIT5;
+    case 6 : bit=BIT6;
+    case 7 : bit=BIT7;
+  }
+  
+  if (value==0) {
+    SystemAlarm.AlarmTable[part]&=bit;
+  }else {
+    SystemAlarm.AlarmTable[part]|=bit;
+  }
+}
+
+unsigned char GetAlarmTable(int index){
+  unsigned int  part=index >> 3;  //除8
+  unsigned char bit;
+  unsigned char offset=index%8;
+  
+  switch (offset) {
+    case 0 : bit=BIT0;
+    case 1 : bit=BIT1;
+    case 2 : bit=BIT2;
+    case 3 : bit=BIT3;
+    case 4 : bit=BIT4;
+    case 5 : bit=BIT5;
+    case 6 : bit=BIT6;
+    case 7 : bit=BIT7;
+  }
+  
+  if (SystemAlarm.AlarmTable[part]&&bit==0){
+    return 0;
+  }else{
+    return 1;
+  }
+  
+}
+
 
 void InitAlarmTable(){
   unsigned long EncodeM;
-  for(int i=0;i<1440;i++){
-    SystemAlarm.AlarmTable[i]=0;
-  }
+  ClearAlarmTable();
   if(SystemAlarm.NO1_Contiune!=0){
     EncodeM=EncodeMinute(SystemAlarm.NO1_Hour,SystemAlarm.NO1_Minute);
     for(int i=EncodeM;i<(EncodeM+SystemAlarm.NO1_Contiune);i++){
-      SystemAlarm.AlarmTable[i%1440]=1;
+      SetAlarmTable(i%1440,1);
     }
   }
   if(SystemAlarm.NO2_Contiune!=0){
     EncodeM=EncodeMinute(SystemAlarm.NO2_Hour,SystemAlarm.NO2_Minute);
     for(int i=EncodeM;i<(EncodeM+SystemAlarm.NO2_Contiune);i++){
-      SystemAlarm.AlarmTable[i%1440]=1;
+      SetAlarmTable(i%1440,1);
     }
   }
   if(SystemAlarm.NO3_Contiune!=0){
     EncodeM=EncodeMinute(SystemAlarm.NO3_Hour,SystemAlarm.NO3_Minute);
     for(int i=EncodeM;i<(EncodeM+SystemAlarm.NO3_Contiune);i++){
-      SystemAlarm.AlarmTable[i%1440]=1;
+      SetAlarmTable(i%1440,1);
     }
   }
   if(SystemAlarm.NO4_Contiune!=0){
     EncodeM=EncodeMinute(SystemAlarm.NO4_Hour,SystemAlarm.NO4_Minute);
     for(int i=EncodeM;i<(EncodeM+SystemAlarm.NO4_Contiune);i++){
-      SystemAlarm.AlarmTable[i%1440]=1;
+      SetAlarmTable(i%1440,1);
     }
   }  
   
@@ -100,25 +151,25 @@ void CheckAlarm(){  //每10秒檢查一次
     }
   }
   
-  if((SystemAlarm.AlarmTable[EncodeNow]==1)&&(SystemAlarm.AlarmTrigger[0]==1)){  //第1組
+  if((GetAlarmTable(EncodeNow)==1)&&(SystemAlarm.AlarmTrigger[0]==1)){  //第1組
     SystemAlarm.SystemRingBack1=1;
   }else{
     SystemAlarm.SystemRingBack1=0;
   }
   
-  if((SystemAlarm.AlarmTable[EncodeNow]==1)&&(SystemAlarm.AlarmTrigger[1]==1)){  //第2組
+  if((GetAlarmTable(EncodeNow)==1)&&(SystemAlarm.AlarmTrigger[1]==1)){  //第2組
     SystemAlarm.SystemRingBack2=1;
   }else{
     SystemAlarm.SystemRingBack2=0;
   }
 
-  if((SystemAlarm.AlarmTable[EncodeNow]==1)&&(SystemAlarm.AlarmTrigger[2]==1)){  //第3組
+  if((GetAlarmTable(EncodeNow)==1)&&(SystemAlarm.AlarmTrigger[2]==1)){  //第3組
     SystemAlarm.SystemRingBack3=1;
   }else{
     SystemAlarm.SystemRingBack3=0;
   }
 
-  if((SystemAlarm.AlarmTable[EncodeNow]==1)&&(SystemAlarm.AlarmTrigger[3]==1)){  //第3組
+  if((GetAlarmTable(EncodeNow)==1)&&(SystemAlarm.AlarmTrigger[3]==1)){  //第3組
     SystemAlarm.SystemRingBack4=1;
   }else{
     SystemAlarm.SystemRingBack4=0;

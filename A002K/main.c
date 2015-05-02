@@ -131,7 +131,7 @@ int main( void )
   BuzzerBeep(100); 
   CheckSOPMode(); //===========檢查是否要進入SOP MODE
   
-  InitFlow();  
+  InitFlow();   
   EnableP1P2Int();
 
   SendQueueSizeToPC(&CTIMSGQueue);

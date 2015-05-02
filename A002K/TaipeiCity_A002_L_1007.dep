@@ -2,15 +2,15 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>2254309143</fileChecksum>
+  <fileChecksum>719614395</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
       <file>$PROJ_DIR$\Cti\VoiceControl.c</file>
       <file>$PROJ_DIR$\Cti\Cti.c</file>
       <file>$PROJ_DIR$\Flow\Flow_Alarm.c</file>
-      <file>$PROJ_DIR$\Flow\Flow_main.c</file>
       <file>$PROJ_DIR$\Flow\Flow_HealthData.c</file>
+      <file>$PROJ_DIR$\Flow\Flow_main.c</file>
       <file>$PROJ_DIR$\Flow\Flow_NormalStandby.c</file>
       <file>$PROJ_DIR$\Flow\Flow_Service.c</file>
       <file>$PROJ_DIR$\Flow\Flow_StartLine.c</file>
@@ -28,13 +28,13 @@
       <file>$PROJ_DIR$\Debug\Obj\RangBuffer.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_SystemCheck.r43</file>
       <file>$PROJ_DIR$\Tentel\Tentel.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\Flow_Alarm.pbi</file>
-      <file>$PROJ_DIR$\TaipeiCity_A002_L.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\DongleLib.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\Flow_StartLine.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_NormalStandby.r43</file>
-      <file>$TOOLKIT_DIR$\config\lnk430F5438.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\Flow_StartLine.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\DongleLib.pbi</file>
+      <file>$TOOLKIT_DIR$\config\lnk430F5438.xcl</file>
+      <file>$PROJ_DIR$\TaipeiCity_A002_L.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Flow_Alarm.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\DongleLib.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\SystemConfig.r43</file>
       <file>$PROJ_DIR$\Tentel\RangBuffer.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Cti.pbi</file>
@@ -42,57 +42,59 @@
       <file>$PROJ_DIR$\Debug\Obj\Flow_HealthData.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\RangBuffer.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Tentel.r43</file>
-      <file>$TOOLKIT_DIR$\config\multiplier32_loc2.xcl</file>
-      <file>$PROJ_DIR$\SystemConfig.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\MeasureDev.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_StartLine.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\SOP.pbi</file>
-      <file>$PROJ_DIR$\DriverLib\PinDefine.h</file>
-      <file>$PROJ_DIR$\Flow\FlowStruct.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\MeasureDev.pbi</file>
+      <file>$TOOLKIT_DIR$\config\multiplier32_loc2.xcl</file>
       <file>$PROJ_DIR$\Debug\Obj\TaiDoc.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Flow_SystemReport.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\VoiceControl.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Flow_SystemReport.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\MeasureDev.pbi</file>
+      <file>$PROJ_DIR$\Flow\FlowStruct.h</file>
+      <file>$PROJ_DIR$\DriverLib\PinDefine.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\SOP.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_Alarm.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\TaipeiCity_A002_L_1007.pbd</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_SystemCheck.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_main.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\SOP.r43</file>
       <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-      <file>$PROJ_DIR$\Debug\Exe\TaipeiCity_A002_L_1007.ulp</file>
-      <file>$TOOLKIT_DIR$\inc\msp430x54x.h</file>
-      <file>$PROJ_DIR$\Debug\Exe\TaipeiCity_A002_L_1007.txt</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\DriverLib\DriverLib.h</file>
       <file>$PROJ_DIR$\Measuredev\Measuredev.h</file>
       <file>$PROJ_DIR$\Debug\Obj\TaiDoc.r43</file>
-      <file>$PROJ_DIR$\DriverLib\DriverLib.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dl430xsfn.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_Service.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\SystemConfig.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\TaipeiCity_A002_L_1007.txt</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x54x.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_SystemReport.r43</file>
       <file>$PROJ_DIR$\MeasureDev\TaiDoc\TaiDoc.h</file>
       <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\Tentel.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_Service.r43</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_main.r43</file>
-      <file>$PROJ_DIR$\Debug\Exe\TaipeiCity_A002_L_1007.d43</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\VoiceControl.r43</file>
-      <file>$PROJ_DIR$\DriverLib\SystemCLK.h</file>
       <file>$PROJ_DIR$\Debug\Obj\Flow_NormalStandby.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\Flow_HealthData.r43</file>
       <file>$PROJ_DIR$\MeasureDev\Donglelib\Donglelib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Flow_HealthData.r43</file>
+      <file>$PROJ_DIR$\DriverLib\SystemCLK.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\VoiceControl.r43</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdlib.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl430xsf.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$PROJ_DIR$\Debug\Exe\TaipeiCity_A002_L_1007.d43</file>
+      <file>$PROJ_DIR$\SystemConfig.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\TaipeiCity_A002_L_1007.ulp</file>
+      <file>$PROJ_DIR$\Debug\Obj\MeasureDev.r43</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 69 55</file>
+          <file> 74 56</file>
         </tool>
         <tool>
           <name>ULP430</name>
-          <file> 53</file>
+          <file> 76</file>
         </tool>
       </outputs>
     </file>
@@ -101,21 +103,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 71</file>
+          <file> 69</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 46</file>
+          <file> 39</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -134,11 +136,11 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -147,44 +149,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 47</file>
+          <file> 45</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 22</file>
+          <file> 27</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Flow\Flow_main.c</name>
-      <outputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 68</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 50</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -193,7 +172,7 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 74</file>
+          <file> 67</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -203,11 +182,34 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Flow\Flow_main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 64</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52 70 71</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52 70 71</file>
         </tool>
       </inputs>
     </file>
@@ -216,21 +218,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 26</file>
+          <file> 22</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 73</file>
+          <file> 65</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -239,17 +241,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 67</file>
+          <file> 63</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 61</file>
+          <file> 54</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -258,21 +264,17 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 25</file>
+          <file> 23</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 39</file>
+          <file> 36</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -285,17 +287,17 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 49</file>
+          <file> 47</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -304,21 +306,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 63</file>
+          <file> 59</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 45</file>
+          <file> 40</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -350,21 +352,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 24</file>
+          <file> 28</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 28</file>
+          <file> 24</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 75 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 66 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 75 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 66 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -373,21 +375,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 58</file>
+          <file> 53</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 44</file>
+          <file> 38</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 64 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 60 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 64 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 60 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -396,21 +398,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 38</file>
+          <file> 77</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 43</file>
+          <file> 41</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 64 23 59 54 56 52 41 72 37 42 21 30 57 75</file>
+          <file> 60 26 51 57 58 50 43 68 75 42 21 30 52 66</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 64 23 59 54 56 52 41 72 37 42 21 30 57 75</file>
+          <file> 60 26 51 57 58 50 43 68 75 42 21 30 52 66</file>
         </tool>
       </inputs>
     </file>
@@ -423,17 +425,17 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 66</file>
+          <file> 62</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 59 54 56 52 41 72 37 42 21 30 57</file>
+          <file> 26 51 57 58 50 43 68 75 42 21 30 52</file>
         </tool>
       </inputs>
     </file>
@@ -442,21 +444,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 70</file>
+          <file> 73</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 65</file>
+          <file> 61</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 59 54 56 52 41 72 21 30 23 37 42 57</file>
+          <file> 51 57 58 50 43 68 21 30 26 75 42 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 59 54 56 52 41 72 21 30 23 37 42 57</file>
+          <file> 51 57 58 50 43 68 21 30 26 75 42 52</file>
         </tool>
       </inputs>
     </file>
@@ -465,21 +467,21 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 51</file>
+          <file> 49</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 40</file>
+          <file> 44</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 59 54 56 52 41 72 21 30 23 37 42 57</file>
+          <file> 51 57 58 50 43 68 21 30 26 75 42 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 59 54 56 52 41 72 21 30 23 37 42 57</file>
+          <file> 51 57 58 50 43 68 21 30 26 75 42 52</file>
         </tool>
       </inputs>
     </file>
@@ -492,17 +494,17 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 62</file>
+          <file> 55</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 59 54 56 52 41 72 21 30 23 37 42 57</file>
+          <file> 51 57 58 50 43 68 21 30 26 75 42 52</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 59 54 56 52 41 72 21 30 23 37 42 57</file>
+          <file> 51 57 58 50 43 68 21 30 26 75 42 52</file>
         </tool>
       </inputs>
     </file>
@@ -511,16 +513,91 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 55</file>
+          <file> 56</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 27 36 32 24 47 74 26 67 25 20 63 68 38 34 51 29 58 35 71 70 15 60</file>
+          <file> 25 37 32 28 45 67 22 63 23 20 59 64 77 34 49 29 53 35 69 73 15 72</file>
         </tool>
       </inputs>
     </file>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Cti\VoiceControl.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Cti\Cti.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Flow\Flow_Alarm.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Flow\Flow_HealthData.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Flow\Flow_main.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Flow\Flow_NormalStandby.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Flow\Flow_Service.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Flow\Flow_StartLine.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Flow\Flow_SystemCheck.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Flow\Flow_SystemReport.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Tentel\RangBuffer.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\MeasureDev\DongleLib\DongleLib.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\MeasureDev\TaiDoc\TaiDoc.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\MeasureDev\MeasureDev.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Tentel\Tentel.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\main.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\SOP.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\SystemConfig.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
   </configuration>
   <configuration>
     <name>Release</name>
