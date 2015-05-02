@@ -35,11 +35,27 @@ void ClearNodeData(CTIMessage *Node){
     //Node->MessageStage1= (unsigned char *)malloc (14);
     //Node->MessageStage2= (unsigned char *)malloc (14);
     
-    for(int i=0;i<14;i++){
+    for(int i=0;i<7;i++){
       Node->MessageStage1[i]=0;     // *(主機編號)(資料)
       Node->MessageStage2[i]=0;     // #(壓扣編號)(訊息種類)(時間)(CHKSUM)
     }
     
+}
+
+void GetQueueMessageStage(unsigned char souMS[7],unsigned char *des){
+  _NOP();
+  for (int i=0;i<7;i++){
+    des[i*2]=(souMS[i]>>4)&0x0f;    //取得高4位元
+    des[i*2+1]=souMS[i]&0x0f;       //取得低4位元
+  }
+}
+
+void SetQueueMessageStage(unsigned char sou[14],unsigned char *desMS){
+  _NOP();
+  for (int i=0;i<7;i++){
+    //        高4位元                      低4位元
+    desMS[i]=((sou[i*2]&0x0f)<<4)&0xf0  + (sou[(i*2)+1])&0x0f;
+  }
 }
 
 unsigned char DTMFToChar(unsigned char Digi){
@@ -89,11 +105,15 @@ void SendQueueDataToPc(CTIMessageQueue *CQ){
   SendTextToUart(COM3,"GETQU",5);  //DEVICE傳資料給MCU
   for(int i=0;i<CTIMessageQueueLength;i++){
     QueueIndex=i;//CQ->QRear-i+7;
+    unsigned char MessageStage1[14];
+    unsigned char MessageStage2[14];
+    GetQueueMessageStage(CQ->MSGList[QueueIndex].MessageStage1,MessageStage1);
+    GetQueueMessageStage(CQ->MSGList[QueueIndex].MessageStage2,MessageStage2);
     for(int j=0;j<14;j++){
-      SendByteToUart(COM3,DTMFToChar(CQ->MSGList[QueueIndex].MessageStage1[j]));
+      SendByteToUart(COM3,DTMFToChar(MessageStage1[j]));
     }
     for(int j=0;j<14;j++){
-      SendByteToUart(COM3,DTMFToChar(CQ->MSGList[QueueIndex].MessageStage2[j]));
+      SendByteToUart(COM3,DTMFToChar(MessageStage2[j]));
     }
     if(i<CTIMessageQueueLength-1){
       SendByteToUart(COM3,','); 
@@ -163,44 +183,48 @@ CTIMessage GetQueueNode(CTIMessageQueue *CQ){
 }
 
 void PacketCTIMSG(CTIMessage *CQData){
+  unsigned char MessageStage1[14];
+  unsigned char MessageStage2[14];
   //=====================MessageStage1===================
-  CQData->MessageStage1[0]='*';
-  CQData->MessageStage1[1]= (CQData->GateWayID /1000)%10;
-  CQData->MessageStage1[2]= (CQData->GateWayID /100)%10;
-  CQData->MessageStage1[3]= (CQData->GateWayID /10)%10;
-  CQData->MessageStage1[4]= (CQData->GateWayID /1)%10;
-  CQData->MessageStage1[5]= (CQData->Data /100000000)%10;
-  CQData->MessageStage1[6]= (CQData->Data /10000000)%10;
-  CQData->MessageStage1[7]= (CQData->Data /1000000)%10;
-  CQData->MessageStage1[8]= (CQData->Data /100000)%10;
-  CQData->MessageStage1[9]= (CQData->Data /10000)%10;
-  CQData->MessageStage1[10]=(CQData->Data /1000)%10;
-  CQData->MessageStage1[11]=(CQData->Data /100)%10;
-  CQData->MessageStage1[12]=(CQData->Data /10)%10;
-  CQData->MessageStage1[13]=(CQData->Data /1)%10;
+  MessageStage1[0]='*';
+  MessageStage1[1]= (CQData->GateWayID /1000)%10;
+  MessageStage1[2]= (CQData->GateWayID /100)%10;
+  MessageStage1[3]= (CQData->GateWayID /10)%10;
+  MessageStage1[4]= (CQData->GateWayID /1)%10;
+  MessageStage1[5]= (CQData->Data /100000000)%10;
+  MessageStage1[6]= (CQData->Data /10000000)%10;
+  MessageStage1[7]= (CQData->Data /1000000)%10;
+  MessageStage1[8]= (CQData->Data /100000)%10;
+  MessageStage1[9]= (CQData->Data /10000)%10;
+  MessageStage1[10]=(CQData->Data /1000)%10;
+  MessageStage1[11]=(CQData->Data /100)%10;
+  MessageStage1[12]=(CQData->Data /10)%10;
+  MessageStage1[13]=(CQData->Data /1)%10;
   //=====================MessageStage2=================== 
-  CQData->MessageStage2[0]='#';
-  CQData->MessageStage2[1]=(CQData->DeviceID /10)%10;
-  CQData->MessageStage2[2]=(CQData->DeviceID /1)%10;
-  CQData->MessageStage2[3]=(CQData->MsgType /10)%10;
-  CQData->MessageStage2[4]=(CQData->MsgType /1)%10;
+  MessageStage2[0]='#';
+  MessageStage2[1]=(CQData->DeviceID /10)%10;
+  MessageStage2[2]=(CQData->DeviceID /1)%10;
+  MessageStage2[3]=(CQData->MsgType /10)%10;
+  MessageStage2[4]=(CQData->MsgType /1)%10;
   
   unsigned long ETime=CQData->EncodeDateTime;
-  CQData->MessageStage2[5]= (ETime /10000000)%10;
-  CQData->MessageStage2[6]= (ETime /1000000)%10;
-  CQData->MessageStage2[7]= (ETime /100000)%10;
-  CQData->MessageStage2[8]= (ETime /10000)%10;
-  CQData->MessageStage2[9]= (ETime /1000)%10;
-  CQData->MessageStage2[10]=(ETime /100)%10;
-  CQData->MessageStage2[11]=(ETime /10)%10;
-  CQData->MessageStage2[12]=(ETime /1)%10;
-  CQData->MessageStage2[13]=0;
+  MessageStage2[5]= (ETime /10000000)%10;
+  MessageStage2[6]= (ETime /1000000)%10;
+  MessageStage2[7]= (ETime /100000)%10;
+  MessageStage2[8]= (ETime /10000)%10;
+  MessageStage2[9]= (ETime /1000)%10;
+  MessageStage2[10]=(ETime /100)%10;
+  MessageStage2[11]=(ETime /10)%10;
+  MessageStage2[12]=(ETime /1)%10;
+  MessageStage2[13]=0;
   unsigned char Chksum=0;
   for(int i=1;i<14;i++){
-    Chksum+=CQData->MessageStage1[i];
-    Chksum+=CQData->MessageStage2[i];
+    Chksum+=MessageStage1[i];
+    Chksum+=MessageStage2[i];
   }
-  CQData->MessageStage2[13]=Chksum%10;
+  MessageStage2[13]=Chksum%10;
+  SetQueueMessageStage(MessageStage1,CQData->MessageStage1);
+  SetQueueMessageStage(MessageStage2,CQData->MessageStage2);
   SendQueueSizeToPC(&CTIMSGQueue);
 }
 

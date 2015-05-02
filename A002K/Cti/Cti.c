@@ -188,8 +188,12 @@ unsigned char SendAllCTIMSG(CTIMessageQueue *CQ){   //執行本FUNCTION之前須確定目
   while(CTIMSGQueue.Length>0){
     Delayms(StageTimeout);  
     CTIMessage CTIM=GetQueueNode(CQ);
+    unsigned char MessageStage1[14];
+    unsigned char MessageStage2[14];
+    GetQueueMessageStage(CTIM.MessageStage1,MessageStage1);
+    GetQueueMessageStage(CTIM.MessageStage2,MessageStage2);
     //=========================送QUEUE DATA STAGE1========================
-    Tentel_SendDTMFList(CTIM.MessageStage1,14);  //TONNET說要拉長
+    Tentel_SendDTMFList(MessageStage1,14);  //TONNET說要拉長
 /*
     for(int i=0;i<14;i++){
       Tentel_SendDTMF(CTIM.MessageStage1[i]);
@@ -198,7 +202,7 @@ unsigned char SendAllCTIMSG(CTIMessageQueue *CQ){   //執行本FUNCTION之前須確定目
 */
     if(WaitForDTMF(10000,StageTimeout,3)==0) return 0;    //10秒內等不到3就離開
     //=========================送QUEUE DATA STAGE2========================
-    Tentel_SendDTMFList(CTIM.MessageStage2,14);  //TONNET說要拉長
+    Tentel_SendDTMFList(MessageStage2,14);  //TONNET說要拉長
 /*
     for(int i=0;i<14;i++){
       Tentel_SendDTMF(CTIM.MessageStage2[i]);

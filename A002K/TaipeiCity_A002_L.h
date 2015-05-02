@@ -15,7 +15,7 @@
 //原共7583每個Queue node 42*16=678 byte 若採省DTMF方案 因28*64=1792 AlarmTable已省1260 =>7583-678-1260+1792=7437 夠用
 //原共7583每個Queue node 42*16=678 byte DTMF不動 因42*64=2688 AlarmTable已省1260 => 7583-678-1260+2688=8333 還須瘦身750 byte
 
-#define CTIMessageQueueLength 16
+#define CTIMessageQueueLength 64
 #define UniqueMessage         100   //代表此事件不可重複
 //========================================小事
 #define CTIMSG_GatewayBTLow         1   +UniqueMessage
@@ -40,8 +40,8 @@ typedef struct{
     unsigned long Data; //最多9位數字
     unsigned char RetryCount;
     //================================最後輸出編碼=========
-    unsigned char MessageStage1[14];   // *(主機編號)(資料)
-    unsigned char MessageStage2[14];   // #(壓扣編號)(訊息種類)(時間)(CHKSUM)
+    unsigned char MessageStage1[7];   // *(主機編號)(資料)
+    unsigned char MessageStage2[7];   // #(壓扣編號)(訊息種類)(時間)(CHKSUM)
     //unsigned char *MessageStage1;   // *(主機編號)(資料)
     //unsigned char *MessageStage2;   // #(壓扣編號)(訊息種類)(時間)(CHKSUM)
 }CTIMessage;
@@ -61,6 +61,9 @@ extern void DeleteCTIMSG(CTIMessageQueue *CQ);
 extern void DeleteLastMSG(CTIMessageQueue *CQ);
 extern void DeleteAllCTIMSG(CTIMessageQueue *CQ);
 extern void DeleteRetryData(CTIMessageQueue *CQ);
+
+extern void GetQueueMessageStage(unsigned char souMS[7],unsigned char *des);
+extern void SetQueueMessageStage(unsigned char sou[14],unsigned char *desMS);
 
 extern void SendQueueDataToFlash(int *CQ);
 extern void GetQueueDataFromFlash(int *CQ);
