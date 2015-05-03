@@ -42,50 +42,60 @@ void ClearNodeData(CTIMessage *Node){
     
 }
 
-void GetQueueMessageStage(unsigned char souMS[7],unsigned char *des){
-  _NOP();
+void GetQueueMessageStage(unsigned char *souMS,unsigned char *des){
+  unsigned char *d=des;
   for (int i=0;i<7;i++){
-    des[i*2]=(souMS[i]>>4)&0x0f;    //¨ú±o°ª4¦ì¤¸
-    des[i*2+1]=souMS[i]&0x0f;       //¨ú±o§C4¦ì¤¸
+    *des=(souMS[i]>>4)&0x0f;    //¨ú±o°ª4¦ì¤¸
+    des++;
+    *des=souMS[i]&0x0f;       //¨ú±o§C4¦ì¤¸
+    des++;
+  }
+  for (int i=0;i<14;i++){
+    if (*d==0x0e) { *d='*'; }
+    if (*d==0x0f) { *d='#'; }
+    d++;
   }
 }
 
-void SetQueueMessageStage(unsigned char sou[14],unsigned char *desMS){
-  _NOP();
+void SetQueueMessageStage(unsigned char *sou,unsigned char *desMS){
   for (int i=0;i<7;i++){
+    unsigned char hb=*sou;
+    sou++;
+    unsigned char lb=*sou;
+    sou++;
     //        °ª4¦ì¤¸                      §C4¦ì¤¸
-    desMS[i]=((sou[i*2]&0x0f)<<4)&0xf0  + (sou[(i*2)+1])&0x0f;
+    *desMS=((hb<<4)&0xf0)  + (lb&0x0f);
+    desMS++;
   }
 }
 
 unsigned char DTMFToChar(unsigned char Digi){
-  if(Digi=='*'){
+  if(Digi==0x0e){
     return '*';
-  }else if(Digi=='#'){
-    return '*';
+  }else if(Digi==0x0f){
+    return '#';
   }else{
     return Digi+0x30;
   }
 }
 
 void SendQueueDataToFlash(int *CQ){
-  unsigned char BUF[QueueDataSize];
+  unsigned char BUF[512];
   unsigned char *CTIQueueAddr=(unsigned char *)CQ;
   unsigned int CTIQueueSize=sizeof(CTIMessageQueue);
   
-  for(int i=0;i<QueueDataSize;i++){
-    BUF[i]=0;
-  }
-  
   for(int i=0;i<CTIQueueSize;i++){
-    unsigned char Data=(unsigned char)*CTIQueueAddr;
-    BUF[i]= Data;
+    BUF[i%512]= (unsigned char)*CTIQueueAddr;
+    if (i%512==0){
+      flash_erase_multi_segments(QueueData_Addr+i,1);
+      flash_erase_multi_segments(QueueData_Addr+i+512,1);
+    }else if (i%512==511){
+      flash_write_Block(QueueData_Addr-512,BUF,512);
+    }
     *CTIQueueAddr++;
   }
 
-  flash_erase_multi_segments(QueueData_Addr,1);
-  flash_erase_multi_segments(QueueData_Addr+512,1);
-  flash_write_Block(QueueData_Addr,BUF,CTIQueueSize);
+
 }
 
 void GetQueueDataFromFlash(int *CQ){
@@ -107,8 +117,8 @@ void SendQueueDataToPc(CTIMessageQueue *CQ){
     QueueIndex=i;//CQ->QRear-i+7;
     unsigned char MessageStage1[14];
     unsigned char MessageStage2[14];
-    GetQueueMessageStage(CQ->MSGList[QueueIndex].MessageStage1,MessageStage1);
-    GetQueueMessageStage(CQ->MSGList[QueueIndex].MessageStage2,MessageStage2);
+    GetQueueMessageStage(CQ->MSGList[QueueIndex].MessageStage1,(unsigned char *)&MessageStage1);
+    GetQueueMessageStage(CQ->MSGList[QueueIndex].MessageStage2,(unsigned char *)&MessageStage2);
     for(int j=0;j<14;j++){
       SendByteToUart(COM3,DTMFToChar(MessageStage1[j]));
     }
@@ -182,11 +192,12 @@ CTIMessage GetQueueNode(CTIMessageQueue *CQ){
   return CQ->MSGList[CQ->QRear];
 }
 
+
 void PacketCTIMSG(CTIMessage *CQData){
   unsigned char MessageStage1[14];
   unsigned char MessageStage2[14];
   //=====================MessageStage1===================
-  MessageStage1[0]='*';
+  MessageStage1[0]= 0x0e;  //'*';
   MessageStage1[1]= (CQData->GateWayID /1000)%10;
   MessageStage1[2]= (CQData->GateWayID /100)%10;
   MessageStage1[3]= (CQData->GateWayID /10)%10;
@@ -201,7 +212,7 @@ void PacketCTIMSG(CTIMessage *CQData){
   MessageStage1[12]=(CQData->Data /10)%10;
   MessageStage1[13]=(CQData->Data /1)%10;
   //=====================MessageStage2=================== 
-  MessageStage2[0]='#';
+  MessageStage2[0]= 0x0f;  //'#';
   MessageStage2[1]=(CQData->DeviceID /10)%10;
   MessageStage2[2]=(CQData->DeviceID /1)%10;
   MessageStage2[3]=(CQData->MsgType /10)%10;
@@ -223,6 +234,7 @@ void PacketCTIMSG(CTIMessage *CQData){
     Chksum+=MessageStage2[i];
   }
   MessageStage2[13]=Chksum%10;
+  //printf("M1:%s M2:%s chk:%d",MessageStage1,MessageStage2,Chksum);
   SetQueueMessageStage(MessageStage1,CQData->MessageStage1);
   SetQueueMessageStage(MessageStage2,CQData->MessageStage2);
   SendQueueSizeToPC(&CTIMSGQueue);
