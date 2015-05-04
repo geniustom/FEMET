@@ -844,7 +844,7 @@ begin
       TEMPBUF:=BUF;
       while length(TEMPBUF)>=6 do
       begin
-        if(ord(TEMPBUF[6])-1)>16 then break;
+        if(ord(TEMPBUF[6])-1)>64 then break;
         QueueSize_LB.Caption:= inttostr(ord(TEMPBUF[6])-1);
         delete(TEMPBUF,1,6);
       end;
@@ -864,7 +864,7 @@ begin
       QueueList.Rows[0].Delimiter:=',';
       QueueList.Rows[0].DelimitedText:='ID,MSG';
       
-      for i:=1 to 16 do
+      for i:=1 to 64 do
       begin
          QueueList.Rows[i].Clear;
          QueueList.Rows[i].Delimiter:=',';

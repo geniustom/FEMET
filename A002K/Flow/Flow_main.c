@@ -70,9 +70,9 @@ void SetQueueMessageStage(unsigned char *sou,unsigned char *desMS){
 }
 
 unsigned char DTMFToChar(unsigned char Digi){
-  if(Digi==0x0e){
+  if(Digi=='*'){
     return '*';
-  }else if(Digi==0x0f){
+  }else if(Digi=='#'){
     return '#';
   }else{
     return Digi+0x30;

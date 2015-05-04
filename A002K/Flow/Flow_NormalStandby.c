@@ -21,7 +21,7 @@ void CancelPress(){
 }
 
 void CancelLongPress(){
-  if(A002State.State!=State_NormalStandBy){
+  if((A002State.State!=State_NormalStandBy)&&(A002State.State!=State_StartLine)){
     DriverFlag.CancelLongPress=0;  //因按鈕無效，故取消致能
     return;                     //非待機模式不允許接受訊息
   }
@@ -76,7 +76,7 @@ void TestQueueSend(){
   //PutCTIMSG(&CTIMSGQueue,0,CTIMSG_GatewayBTLow,EncodeNowDateTime(),0);
   //PutCTIMSG(&CTIMSGQueue,1,CTIMSG_DeviceBTLow,EncodeNowDateTime(),0);    //第一組壓扣異常
   for(int i=0;i<CTIMessageQueueLength;i++){
-    PutCTIMSG(&CTIMSGQueue,1,CTIMSG_HealthDataUpload,EncodeNowDateTime(),((i+1)*111111111));
+    PutCTIMSG(&CTIMSGQueue,1,CTIMSG_HealthDataUpload,EncodeNowDateTime(),((i+1)*1001001));
   }
 }
 

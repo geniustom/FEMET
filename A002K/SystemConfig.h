@@ -32,7 +32,7 @@ const unsigned char SystemConfig_SystemReportContinue    @SystemConfig_Addr+0x15
 
 const unsigned char SystemConfig_SystemCheckTimeout      @SystemConfig_Addr+0x16=30;   //系統自我檢測時間
 
-const unsigned int  SystemConfig_CustomerID              @SystemConfig_Addr+0x20=0;
+const unsigned int  SystemConfig_CustomerID              @SystemConfig_Addr+0x20=6789;
 const unsigned char SystemConfig_BatchTransfer           @SystemConfig_Addr+0x22=49;  //49:單筆傳送,51:批次傳送
 const unsigned char SystemConfig_BuzzerMode              @SystemConfig_Addr+0x23=1;
 const unsigned char SystemConfig_QueueRetryCount         @SystemConfig_Addr+0x24=10;
