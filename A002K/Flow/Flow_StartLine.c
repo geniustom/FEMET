@@ -55,11 +55,19 @@ unsigned char Wait15SecToStart(){
       //-----------------------------中途按取消鈕----------------------
       if (DriverFlag.CancelPress==1){ //按取消跳出迴圈
         DriverFlag.CancelPress=0;   //按鈕復位
-        DeleteLastMSG(&CTIMSGQueue);
+        //DeleteLastMSG(&CTIMSGQueue); //64筆的版本取消時不刪除訊息
         BuzzerBeep(100);
         return 0;
       }
-      //-----------------------------------------------------------
+      //------------------------長按時將Queue全部刪除-----------------
+      if (DriverFlag.CancelLongPress==1){
+        DriverFlag.CancelLongPress=0;   //按鈕復位
+        DeleteAllCTIMSG(&CTIMSGQueue);
+        DriverFlag.CancelPress=1;       //要模擬取消被按下
+        BuzzerBeep(100);
+        return 0;
+      }
+      //--------------------------------------------------------------
     }
     
   }
@@ -113,13 +121,22 @@ void StartLine_Work(){
     CallSuccess();
   }
 //=================================================  
-  if (DriverFlag.CancelPress==1){
+  //-----------------------------中途按取消鈕----------------------
+  if (DriverFlag.CancelPress==1){ //按取消跳出迴圈
     DriverFlag.CancelPress=0;   //按鈕復位
-    DeleteLastMSG(&CTIMSGQueue);
+    //DeleteLastMSG(&CTIMSGQueue); //64筆的版本取消時不刪除訊息
     BuzzerBeep(100);
-  }  
+  }
+  //------------------------長按時將Queue全部刪除-----------------
+  if (DriverFlag.CancelLongPress==1){
+    DriverFlag.CancelLongPress=0;   //按鈕復位
+    DeleteAllCTIMSG(&CTIMSGQueue);
+    DriverFlag.CancelPress=1;       //要模擬取消被按下
+    BuzzerBeep(100);
+  }
+  //--------------------------------------------------------------
   Tentel_WriteDefault(); //寫入國洋板預設值
-//=================================================    
+//=================================================       
   if(DriverFlag.RDMode==1){  //每次撥完強制重啟
       DriverFlag.ResetSystem=1;
       Delayms(10);  

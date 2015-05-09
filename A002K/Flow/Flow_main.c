@@ -42,30 +42,27 @@ unsigned char DTMFToChar(unsigned char Digi){
   if(Digi=='*'){
     return '*';
   }else if(Digi=='#'){
-    return '*';
+    return '#';
   }else{
     return Digi+0x30;
   }
 }
 
 void SendQueueDataToFlash(int *CQ){
-  unsigned char BUF[1024];
+  unsigned char BUF[512];
   unsigned char *CTIQueueAddr=(unsigned char *)CQ;
   unsigned int CTIQueueSize=sizeof(CTIMessageQueue);
   
-  for(int i=0;i<1024;i++){
-    BUF[i]=0;
-  }
-  
   for(int i=0;i<CTIQueueSize;i++){
-    unsigned char Data=(unsigned char)*CTIQueueAddr;
-    BUF[i]= Data;
+    BUF[i%512]= (unsigned char)*CTIQueueAddr;
+    if (i%512==0){
+      flash_erase_multi_segments(QueueData_Addr+i,1);
+      flash_erase_multi_segments(QueueData_Addr+i+512,1);
+    }else if (i%512==511){
+      flash_write_Block(QueueData_Addr-512,BUF,512);
+    }
     *CTIQueueAddr++;
   }
-
-  flash_erase_multi_segments(QueueData_Addr,1);
-  flash_erase_multi_segments(QueueData_Addr+512,1);
-  flash_write_Block(QueueData_Addr,BUF,CTIQueueSize);
 }
 
 void GetQueueDataFromFlash(int *CQ){
