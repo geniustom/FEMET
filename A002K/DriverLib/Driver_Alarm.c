@@ -52,7 +52,7 @@ unsigned char GetAlarmTable(int index){
     case 7 : bit=BIT7;
   }
   
-  if (SystemAlarm.AlarmTable[part]&&bit==0){
+  if (SystemAlarm.AlarmTable[part]&bit==0){
     return 0;
   }else{
     return 1;
