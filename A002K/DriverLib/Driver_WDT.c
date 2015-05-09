@@ -28,7 +28,12 @@ void Delayms(unsigned long ms){
   unsigned long NowmSec=msecCounter; 
   while((msecCounter<=(NowmSec+ms))){
     _NOP();
-    if(DriverFlag.CancelPress==1)break;
+    if(DriverFlag.CancelPress==1){
+      return;
+    }     
+    if(DriverFlag.CancelLongPress==1){
+      return;
+    }
   }
 }
 

@@ -4,7 +4,7 @@
 #define SystemConfig_H
 
 #define QueueData_Addr 0xE000
-#define QueueDataSize 2048
+#define QueueDataSize 4096
 const unsigned char QueueDataBackup[QueueDataSize]       @QueueData_Addr;
 
 #define Emergency_Addr 0xF600

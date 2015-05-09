@@ -62,10 +62,13 @@ unsigned char Wait15SecToStart(){
       //------------------------長按時將Queue全部刪除-----------------
       if ((DriverFlag.CancelLongPress==1)&&(DriverFlag.RDMode==0)){
         DriverFlag.CancelLongPress=0;   //按鈕復位
+        DisableSpeaker();
+        DriverFlag.Phone0Gateway1=0;
         DeleteAllCTIMSG(&CTIMSGQueue);
-        BuzzerBeep(50);
-        BuzzerBeep(50);
-        BuzzerBeep(50);
+        for(int i=0;i<3;i++){
+          Delayms(50);
+          BuzzerBeep(50);
+        }
         DriverFlag.ResetSystem=1; 
         return 0;
       }
@@ -132,10 +135,13 @@ void StartLine_Work(){
   //------------------------長按時將Queue全部刪除-----------------
   if ((DriverFlag.CancelLongPress==1)&&(DriverFlag.RDMode==0)){
     DriverFlag.CancelLongPress=0;   //按鈕復位
+    DisableSpeaker();
+    DriverFlag.Phone0Gateway1=0;
     DeleteAllCTIMSG(&CTIMSGQueue);
-    BuzzerBeep(50);
-    BuzzerBeep(50);
-    BuzzerBeep(50);
+    for(int i=0;i<3;i++){
+      Delayms(50);
+      BuzzerBeep(50);
+    }
     DriverFlag.ResetSystem=1; 
   }
   //--------------------------------------------------------------

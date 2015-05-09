@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>1393932692</fileChecksum>
+  <fileChecksum>2249639700</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
@@ -82,6 +82,9 @@
       <file>$PROJ_DIR$\Debug\Exe\TaipeiCity_A002_L_1007.d43</file>
       <file>$PROJ_DIR$\Debug\Obj\RangBuffer.r43</file>
       <file>$PROJ_DIR$\Flow\FlowStruct.h</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_Alarm.c</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_WDT.c</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_Uart.c</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\Cti\Cti.c</name>
@@ -259,10 +262,6 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 48 33 34 65 57 40 25 41 75 46 63 71</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
           <file> 48 33 34 65 57 40 25 41 75 46 63 71</file>
         </tool>
       </inputs>
