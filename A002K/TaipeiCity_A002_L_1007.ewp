@@ -46,42 +46,42 @@
         <option>
           <name>GRuntimeLibSelect</name>
           <version>0</version>
-          <state>4</state>
+          <state>1</state>
         </option>
         <option>
           <name>RTDescription</name>
-          <state>Use the legacy C runtime library.</state>
+          <state>Use the normal configuration of the C/EC++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
         </option>
         <option>
           <name>RTConfigPath</name>
-          <state></state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xmfn.h</state>
         </option>
         <option>
           <name>RTLibraryPath</name>
-          <state>$TOOLKIT_DIR$\LIB\CLIB\cl430xsf.r43</state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xmfn.r43</state>
         </option>
         <option>
           <name>Input variant</name>
           <version>1</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>Input description</name>
-          <state>Automatic choice of formatter.</state>
+          <state>Full formatting.</state>
         </option>
         <option>
           <name>Output variant</name>
           <version>1</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>Output description</name>
-          <state>Automatic choice of formatter.</state>
+          <state>Full formatting.</state>
         </option>
         <option>
           <name>GRuntimeLibSelectSlave</name>
           <version>0</version>
-          <state>4</state>
+          <state>1</state>
         </option>
         <option>
           <name>OGCore</name>
@@ -101,19 +101,19 @@
         </option>
         <option>
           <name>GStackHeapOverride</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>GStackSize2</name>
-          <state>4096</state>
+          <state>160</state>
         </option>
         <option>
           <name>GHeapSize2</name>
-          <state>4096</state>
+          <state>160</state>
         </option>
         <option>
           <name>RadioDataModelType</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GHeap20Size</name>
@@ -350,7 +350,7 @@
         <option>
           <name>CCOptStrategy</name>
           <version>0</version>
-          <state>2</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCOptLevelSlave</name>

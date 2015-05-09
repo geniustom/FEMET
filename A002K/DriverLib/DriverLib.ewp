@@ -46,19 +46,19 @@
         <option>
           <name>GRuntimeLibSelect</name>
           <version>0</version>
-          <state>4</state>
+          <state>1</state>
         </option>
         <option>
           <name>RTDescription</name>
-          <state>To be used with the legacy C runtime library.</state>
+          <state>To be used with the normal configuration of the C/EC++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
         </option>
         <option>
           <name>RTConfigPath</name>
-          <state></state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xmfn.h</state>
         </option>
         <option>
           <name>RTLibraryPath</name>
-          <state>$TOOLKIT_DIR$\LIB\CLIB\cl430xsf.r43</state>
+          <state>$TOOLKIT_DIR$\LIB\DLIB\dl430xmfn.r43</state>
         </option>
         <option>
           <name>Input variant</name>
@@ -81,7 +81,7 @@
         <option>
           <name>GRuntimeLibSelectSlave</name>
           <version>0</version>
-          <state>4</state>
+          <state>1</state>
         </option>
         <option>
           <name>OGCore</name>
@@ -113,7 +113,7 @@
         </option>
         <option>
           <name>RadioDataModelType</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GHeap20Size</name>
