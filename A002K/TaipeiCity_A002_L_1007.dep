@@ -84,6 +84,7 @@
       <file>$PROJ_DIR$\Flow\FlowStruct.h</file>
       <file>$PROJ_DIR$\Flow\Flow_SystemReport.c</file>
       <file>$PROJ_DIR$\DriverLib\Driver_Alarm.c</file>
+      <file>$PROJ_DIR$\DriverLib\Driver_RTC.c</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\Flow\Flow_SystemCheck.c</name>

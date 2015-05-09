@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 224
   Top = 164
   BorderStyle = bsDialog
-  Caption = #23429#31471#20027#27231#35373#23450#31243#24335'_Ver 3.15'
+  Caption = #23429#31471#20027#27231#35373#23450#31243#24335'_Ver 4.2'
   ClientHeight = 397
   ClientWidth = 473
   Color = clBtnFace
@@ -238,7 +238,7 @@ object Form1: TForm1
         Top = 0
         Width = 301
         Height = 346
-        ActivePage = TabSheet4
+        ActivePage = TabSheet3
         Align = alClient
         Font.Charset = CHINESEBIG5_CHARSET
         Font.Color = clWindowText
@@ -1707,7 +1707,7 @@ object Form1: TForm1
             Left = 208
             Top = 6
             Width = 78
-            Height = 21
+            Height = 18
             Ctl3D = False
             Enabled = False
             Font.Charset = ANSI_CHARSET
@@ -1764,7 +1764,7 @@ object Form1: TForm1
               Left = 84
               Top = 87
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1781,7 +1781,7 @@ object Form1: TForm1
               Left = 84
               Top = 64
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1798,7 +1798,7 @@ object Form1: TForm1
               Left = 84
               Top = 39
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1815,7 +1815,7 @@ object Form1: TForm1
               Left = 84
               Top = 16
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1881,7 +1881,7 @@ object Form1: TForm1
               Left = 84
               Top = 87
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1898,7 +1898,7 @@ object Form1: TForm1
               Left = 84
               Top = 64
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1915,7 +1915,7 @@ object Form1: TForm1
               Left = 84
               Top = 39
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -1932,7 +1932,7 @@ object Form1: TForm1
               Left = 84
               Top = 16
               Width = 123
-              Height = 21
+              Height = 18
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
               Font.Color = clWindowText
@@ -3196,7 +3196,7 @@ object Form1: TForm1
                 Ctl3D = False
                 DefaultRowHeight = 16
                 FixedCols = 0
-                RowCount = 17
+                RowCount = 65
                 Font.Charset = CHINESEBIG5_CHARSET
                 Font.Color = clWindowText
                 Font.Height = -16
