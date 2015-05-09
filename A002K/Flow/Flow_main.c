@@ -42,7 +42,7 @@ unsigned char DTMFToChar(unsigned char Digi){
   if(Digi=='*'){
     return '*';
   }else if(Digi=='#'){
-    return '*';
+    return '#';
   }else{
     return Digi+0x30;
   }
