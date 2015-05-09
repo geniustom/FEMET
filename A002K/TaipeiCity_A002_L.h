@@ -38,7 +38,7 @@ typedef struct{
     unsigned char MsgType;             //訊息種類
     unsigned long EncodeDateTime;     //編碼後的時間    
     unsigned long Data; //最多9位數字
-    unsigned char RetryCount;
+    unsigned int RetryCount;
     //================================最後輸出編碼=========
     unsigned char MessageStage1[7];   // *(主機編號)(資料)
     unsigned char MessageStage2[7];   // #(壓扣編號)(訊息種類)(時間)(CHKSUM)

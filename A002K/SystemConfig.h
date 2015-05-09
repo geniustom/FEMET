@@ -5,6 +5,7 @@
 
 #define QueueData_Addr 0xE000
 #define QueueDataSize 2048
+//volatile __no_init 
 const unsigned char QueueDataBackup[QueueDataSize]       @QueueData_Addr;
 
 #define Emergency_Addr 0xF600

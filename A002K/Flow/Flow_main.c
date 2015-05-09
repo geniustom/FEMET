@@ -32,9 +32,6 @@ void ClearNodeData(CTIMessage *Node){
     Node->Data=0;               //最多9位數字
     Node->RetryCount=0;
     //================================最後輸出編碼=========
-    //Node->MessageStage1= (unsigned char *)malloc (14);
-    //Node->MessageStage2= (unsigned char *)malloc (14);
-    
     for(int i=0;i<7;i++){
       Node->MessageStage1[i]=0;     // *(主機編號)(資料)
       Node->MessageStage2[i]=0;     // #(壓扣編號)(訊息種類)(時間)(CHKSUM)
@@ -153,14 +150,17 @@ void DeleteRetryData(CTIMessageQueue *CQ){
   }
 }
 
-int testcount;
+int testindex=0;
 void CreateCTIMSGQueue(CTIMessageQueue *CQ){
   CQ->QRear=0;
   CQ->QFront=0;
   CQ->Length=0;
   for(int i=0;i<CTIMessageQueueLength;i++){
+    if (i==54){
+      _NOP();
+    }
     ClearNodeData(&(CQ->MSGList[i]));
-    testcount++;
+    testindex++;
   }
 }
 

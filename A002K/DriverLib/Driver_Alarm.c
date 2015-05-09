@@ -30,7 +30,7 @@ void SetAlarmTable(int index,unsigned char value){
   }
   
   if (value==0) {
-    SystemAlarm.AlarmTable[part]&=bit;
+    SystemAlarm.AlarmTable[part]&=~bit;
   }else {
     SystemAlarm.AlarmTable[part]|=bit;
   }
@@ -52,7 +52,7 @@ unsigned char GetAlarmTable(int index){
     case 7 : bit=BIT7;
   }
   
-  if (SystemAlarm.AlarmTable[part]&&bit==0){
+  if ((SystemAlarm.AlarmTable[part]&bit)==0){
     return 0;
   }else{
     return 1;
