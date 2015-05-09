@@ -3,8 +3,8 @@
 
 #define SystemConfig_H
 
-#define QueueData_Addr 0xF000
-const unsigned char QueueDataBackup[1024]                @QueueData_Addr;
+#define QueueData_Addr 0xE000
+const unsigned char QueueDataBackup[2048]                @QueueData_Addr;
 
 #define Emergency_Addr 0xF600
 const unsigned char Emergency_Flag                       @Emergency_Addr=0;

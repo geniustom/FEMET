@@ -121,8 +121,8 @@ void RunSystem(){
 
 int main( void )
 {
-  CreateCTIMSGQueue(&CTIMSGQueue);
   InitAllDriver();
+  CreateCTIMSGQueue(&CTIMSGQueue);
   InitAllProgram();
   SendTextToUart(COM3,"GWON",4);
   SendTextToUart(COM3,VER,4);

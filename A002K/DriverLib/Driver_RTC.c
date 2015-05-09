@@ -13,7 +13,6 @@ DefaultDateTime DefDateTime;
 /*******初始化時使用**********/
 unsigned char RTC_RMem[7];   //S35390專用讀取記憶體
 unsigned char RTC_WMem[7];   //S35390專用寫入記憶體
-
 /*
 unsigned long EncodeTotalMinute(Y,M,D,H,NN){
   unsigned long EnT= ((unsigned long)SystemDateTime.Year*365*1440)+

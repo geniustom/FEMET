@@ -108,7 +108,7 @@ typedef struct{
     unsigned char NO4_Minute;
     unsigned char NO4_Contiune;
     
-    unsigned char AlarmTable[1440]; //1天有1440分鐘，每次開機時，將會叫的分鐘數寫入這個表格
+    unsigned char AlarmTable[180]; //1天有1440分鐘，每次開機時，將會叫的分鐘數寫入這個表格
     unsigned int  AlarmStart[4];    //0~3組鬧鈴的啟動時間
     unsigned char AlarmTrigger[4];  //0~3組鬧鈴的是否已啟動
     

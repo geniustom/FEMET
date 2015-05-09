@@ -13,7 +13,7 @@
 #define DF    0               //傳輸失敗
 
 
-#define CTIMessageQueueLength 16
+#define CTIMessageQueueLength 64
 #define UniqueMessage         100   //代表此事件不可重複
 //========================================小事
 #define CTIMSG_GatewayBTLow         1   +UniqueMessage
