@@ -31,7 +31,7 @@ void Delayms(unsigned long ms){
     if(DriverFlag.CancelPress==1){
       return;
     }     
-    if(DriverFlag.CancelLongPress==1){
+    if((DriverFlag.CancelLongPress==1)&&(DriverFlag.RDMode==0)){
       return;
     }
   }
