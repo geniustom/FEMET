@@ -19,14 +19,14 @@ void SetAlarmTable(int index,unsigned char value){
   unsigned char offset=index%8;
 
   switch (offset) {
-    case 0 : bit=BIT0;
-    case 1 : bit=BIT1;
-    case 2 : bit=BIT2;
-    case 3 : bit=BIT3;
-    case 4 : bit=BIT4;
-    case 5 : bit=BIT5;
-    case 6 : bit=BIT6;
-    case 7 : bit=BIT7;
+    case 0 : bit=BIT0;break;
+    case 1 : bit=BIT1;break;
+    case 2 : bit=BIT2;break;
+    case 3 : bit=BIT3;break;
+    case 4 : bit=BIT4;break;
+    case 5 : bit=BIT5;break;
+    case 6 : bit=BIT6;break;
+    case 7 : bit=BIT7;break;
   }
   
   if (value==0) {
@@ -42,17 +42,17 @@ unsigned char GetAlarmTable(int index){
   unsigned char offset=index%8;
   
   switch (offset) {
-    case 0 : bit=BIT0;
-    case 1 : bit=BIT1;
-    case 2 : bit=BIT2;
-    case 3 : bit=BIT3;
-    case 4 : bit=BIT4;
-    case 5 : bit=BIT5;
-    case 6 : bit=BIT6;
-    case 7 : bit=BIT7;
+    case 0 : bit=BIT0;break;
+    case 1 : bit=BIT1;break;
+    case 2 : bit=BIT2;break;
+    case 3 : bit=BIT3;break;
+    case 4 : bit=BIT4;break;
+    case 5 : bit=BIT5;break;
+    case 6 : bit=BIT6;break;
+    case 7 : bit=BIT7;break;
   }
   
-  if (SystemAlarm.AlarmTable[part]&bit==0){
+  if ((SystemAlarm.AlarmTable[part]&bit)==0){
     return 0;
   }else{
     return 1;
