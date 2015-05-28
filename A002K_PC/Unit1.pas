@@ -868,8 +868,13 @@ begin
       begin
          QueueList.Rows[i].Clear;
          QueueList.Rows[i].Delimiter:=',';
+      end;
+
+      for i:=1 to TempStrList.Count do
+      begin
          QueueList.Rows[i].DelimitedText:=inttostr(i-1)+','+TempStrList[i-1];
       end;
+      
       QueueMemo.Lines.Clear;
       QueueMemo.Text:='['+formatdatetime('hh:mm:ss',now)+']：Queue內容更新完成';
       //exit;

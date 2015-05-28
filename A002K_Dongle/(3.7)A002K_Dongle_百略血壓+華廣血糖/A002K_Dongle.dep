@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>2927486699</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Device\MicroLife.c</file>
+      <file>$PROJ_DIR$\Device\Wakema.c</file>
+      <file>$PROJ_DIR$\Driver\HwUart.c</file>
+      <file>$PROJ_DIR$\Driver\MuxUart.c</file>
+      <file>$PROJ_DIR$\Driver\Clock.c</file>
+      <file>$PROJ_DIR$\DongleLib\DongleLib.c</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
+      <file>$TOOLKIT_DIR$\config\lnk430F2350.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Clock.r43</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Wakema.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Clock.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\DongleLib.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x23x0.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\A002K_Dongle.txt</file>
+      <file>$PROJ_DIR$\Debug\Obj\HwUart.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\MuxUart.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HwUart.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\A002K_Dongle.pbd</file>
+      <file>$PROJ_DIR$\Debug\Exe\A002K_Dongle.d43</file>
+      <file>$PROJ_DIR$\Debug\Obj\WDT.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\WDT.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$PROJ_DIR$\Device\MicroLife.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\MicroLife.r43</file>
+      <file>$PROJ_DIR$\Device\Wakema.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\DongleLib.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\MuxUart.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\MicroLife.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Wakema.pbi</file>
+      <file>$PROJ_DIR$\Driver\Driver.h</file>
+      <file>$PROJ_DIR$\Driver\WDT.C</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Device\MicroLife.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 16 9 14 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 16 9 14 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Device\Wakema.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29 34 16 9 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 29 34 16 9 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Driver\HwUart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 16 9 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 16 9 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Driver\MuxUart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 31</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 16 9 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 16 9 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Driver\Clock.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 16 9 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 16 9 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\DongleLib\DongleLib.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 16 9 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 16 9 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 26</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 16 9 14 27 29</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 16 9 14 27 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\A002K_Dongle.d43</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 8 7 10 30 20 28 31 12 26 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Driver\WDT.C</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 23</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 16 9 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 16 9 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 22 17</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

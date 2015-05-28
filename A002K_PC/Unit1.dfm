@@ -1232,7 +1232,7 @@ object Form1: TForm1
               Left = 83
               Top = 184
               Width = 70
-              Height = 21
+              Height = 18
               BiDiMode = bdLeftToRight
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1275,7 +1275,7 @@ object Form1: TForm1
               Left = 83
               Top = 163
               Width = 70
-              Height = 21
+              Height = 18
               BiDiMode = bdLeftToRight
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1296,7 +1296,7 @@ object Form1: TForm1
               Left = 83
               Top = 142
               Width = 70
-              Height = 21
+              Height = 18
               BiDiMode = bdLeftToRight
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1339,7 +1339,7 @@ object Form1: TForm1
               Left = 83
               Top = 121
               Width = 70
-              Height = 21
+              Height = 18
               BiDiMode = bdLeftToRight
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1360,7 +1360,7 @@ object Form1: TForm1
               Left = 83
               Top = 100
               Width = 70
-              Height = 21
+              Height = 18
               BiDiMode = bdLeftToRight
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1403,7 +1403,7 @@ object Form1: TForm1
               Left = 83
               Top = 79
               Width = 70
-              Height = 21
+              Height = 18
               BiDiMode = bdLeftToRight
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1424,7 +1424,7 @@ object Form1: TForm1
               Left = 83
               Top = 58
               Width = 70
-              Height = 21
+              Height = 18
               BiDiMode = bdLeftToRight
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1467,7 +1467,7 @@ object Form1: TForm1
               Left = 83
               Top = 37
               Width = 70
-              Height = 21
+              Height = 18
               BiDiMode = bdLeftToRight
               Ctl3D = False
               Font.Charset = ANSI_CHARSET
@@ -1488,7 +1488,7 @@ object Form1: TForm1
               Left = 168
               Top = 37
               Width = 93
-              Height = 21
+              Height = 18
               CharCase = ecUpperCase
               Ctl3D = False
               EditMask = ' !AA AA AA AA;1;'
@@ -1507,7 +1507,7 @@ object Form1: TForm1
               Left = 168
               Top = 58
               Width = 93
-              Height = 21
+              Height = 18
               CharCase = ecUpperCase
               Ctl3D = False
               EditMask = ' !AA AA AA AA;1;'
@@ -1526,7 +1526,7 @@ object Form1: TForm1
               Left = 168
               Top = 79
               Width = 93
-              Height = 21
+              Height = 18
               CharCase = ecUpperCase
               Ctl3D = False
               EditMask = ' !AA AA AA AA;1;'
@@ -1545,7 +1545,7 @@ object Form1: TForm1
               Left = 168
               Top = 100
               Width = 93
-              Height = 21
+              Height = 18
               CharCase = ecUpperCase
               Ctl3D = False
               EditMask = ' !AA AA AA AA;1;'
@@ -1564,7 +1564,7 @@ object Form1: TForm1
               Left = 168
               Top = 121
               Width = 93
-              Height = 21
+              Height = 18
               CharCase = ecUpperCase
               Ctl3D = False
               EditMask = ' !AA AA AA AA;1;'
@@ -1583,7 +1583,7 @@ object Form1: TForm1
               Left = 168
               Top = 142
               Width = 93
-              Height = 21
+              Height = 18
               CharCase = ecUpperCase
               Ctl3D = False
               EditMask = ' !AA AA AA AA;1;'
@@ -1602,7 +1602,7 @@ object Form1: TForm1
               Left = 168
               Top = 163
               Width = 93
-              Height = 21
+              Height = 18
               CharCase = ecUpperCase
               Ctl3D = False
               EditMask = ' !AA AA AA AA;1;'
@@ -1621,7 +1621,7 @@ object Form1: TForm1
               Left = 168
               Top = 184
               Width = 93
-              Height = 21
+              Height = 18
               CharCase = ecUpperCase
               Ctl3D = False
               EditMask = ' !AA AA AA AA;1;'

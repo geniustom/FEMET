@@ -12,7 +12,7 @@ const unsigned char CMD1[1]={0x55};
 const unsigned char CMD2[5]={0x05,0x09,0x00,0x0E,0x00};
 const unsigned char CMD3[1]={0x5A};
 
-
+/*
 unsigned long GetRFIDNumber(){
   unsigned long Num;
   //RFID位置從RFIDBUF[14~18]
@@ -21,6 +21,17 @@ unsigned long GetRFIDNumber(){
      +(unsigned long)RFIDBUF[15] * 256 * 256
      +(unsigned long)RFIDBUF[16] * 256 
      +(unsigned long)RFIDBUF[17];
+  
+  return Num;
+}
+*/
+unsigned long GetRFIDNumber(){
+  unsigned long Num;
+  //RFID位置從RFIDBUF[14~18]
+  Num=0
+     +(unsigned long)RFIDBUF[14] * 256 * 256
+     +(unsigned long)RFIDBUF[15] * 256 
+     +(unsigned long)RFIDBUF[16];
   
   return Num;
 }
