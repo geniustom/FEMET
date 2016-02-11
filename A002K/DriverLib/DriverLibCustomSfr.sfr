@@ -1,4 +1,6 @@
 [Sfr]
+sfr = "P9REN.P9REN4",	"Memory",	0x286,	1,	base=16,	modified
+sfr = "PFREN.PFREN8",	"Memory",	0x2a6,	2,	base=16,	modified
 
 
 [SfrGroupInfo]

@@ -136,6 +136,7 @@ int main( void )
 
   SendQueueSizeToPC(&CTIMSGQueue);
   while(1){
+    ReportWDT();
     if(DriverFlag.RDMode==1){
       //TestQueueSend();   //一次塞32筆data到QUEUE
       DriverFlag.CancelLongPress=1;       //瘋狂燒機測試時使用

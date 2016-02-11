@@ -151,6 +151,7 @@ extern void SetLEDState(LED *LEDA,unsigned int LightDealyms,unsigned int DarkDea
 //=============================WDT============================
 extern unsigned long long msecCounter;
 extern unsigned long long secCounter;
+extern void ReportWDT();
 extern void ResetMCUByPC();
 extern void ResetMCUByPMM();
 extern void ResetMCUByWDT();
@@ -208,6 +209,8 @@ typedef struct{
     unsigned long RFIDCardNumber;           //讀到的RFID卡號
     unsigned long RFIDCardNumber8dig;       //讀到的RFID卡號8碼
     unsigned char RFIDCardDetect;         //不斷更新，若偵測到則為1
+//-----------------------看門狗偵測------------------------
+    unsigned long long WDTMonitorCounter;
 }IOFlag;
 
 extern IOFlag DriverFlag;

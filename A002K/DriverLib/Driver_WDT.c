@@ -27,6 +27,7 @@ void InitWDT(){
 void Delayms(unsigned long ms){
   unsigned long NowmSec=msecCounter; 
   while((msecCounter<=(NowmSec+ms))){
+    ReportWDT();
     _NOP();
     if(DriverFlag.CancelPress==1){
       return;
@@ -47,6 +48,18 @@ void CountTimer(){
   }
 }
 
+void ReportWDT(){
+  DriverFlag.WDTMonitorCounter=0;
+}
+
+void CheckAlive(int sec){
+  //5000¬O20¬í¡A1¬í¬O250
+  DriverFlag.WDTMonitorCounter++;
+  if (DriverFlag.WDTMonitorCounter>=(sec*250)) {
+    DriverFlag.WDTMonitorCounter=0;
+    ResetMCUByPMM();
+  }
+}
 
 // Watchdog Timer interrupt service routine
 #pragma vector=WDT_VECTOR
@@ -56,6 +69,7 @@ __interrupt void watchdog_timer(void){
   CountTimer();
   SetPinSync(&DriverFlag);
   GetPinSync(&DriverFlag);
-  
+  CheckAlive(10);
+
   DriverFlag.NeedRoutin=1;
 }
