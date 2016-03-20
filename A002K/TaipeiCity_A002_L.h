@@ -7,7 +7,7 @@
 #include "TENTEL\Tentel.h"
 #include "Measuredev\Measuredev.h"
 
-#define VER "4.20"
+#define VER "4.30"
 
 #define DS    1               //傳輸成功
 #define DF    0               //傳輸失敗

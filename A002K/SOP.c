@@ -39,6 +39,7 @@ void SOPMode1(){
     EnableP1P2Int();
     
     while(1){
+      Delayms(10);
       //============================================================================偵測是否按下* (開起喇叭)
       unsigned char DTMFData=Tentel_GetDTMFDigi();
       if(DTMFData==0xfa){ //*
