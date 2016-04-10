@@ -55,11 +55,9 @@ void ReportWDT(){
 void CheckAlive(int sec){
   //5000是20秒，1秒是250
   if (DriverFlag.WDTMonitorCounter>=(sec*250)) {
-    //DriverFlag.WDTMonitorCounter=0;
-    //asm("NOP");
-    //asm("NOP");
-    //ResetMCUByPMM();
-    DriverFlag.BuzzerState=1;  //debug階段讓buzzer一直叫，比較好查問題
+    DriverFlag.WDTMonitorCounter=0;
+    ResetMCUByPMM();
+    //DriverFlag.BuzzerState=1;  //debug階段讓buzzer一直叫，比較好查問題
   }else{
     DriverFlag.WDTMonitorCounter++;
   }

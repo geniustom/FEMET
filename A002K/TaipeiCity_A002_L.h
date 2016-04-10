@@ -43,10 +43,11 @@ typedef struct{
 }CTIMessage;
 
 typedef struct{
-    CTIMessage MSGList[CTIMessageQueueLength];
     unsigned int Length;
     unsigned int QRear;
     unsigned int QFront;
+    CTIMessage MSGList[CTIMessageQueueLength];
+    unsigned char EmptyData[256];
 }CTIMessageQueue;
 
 extern unsigned long  EncodeNowDateTime();

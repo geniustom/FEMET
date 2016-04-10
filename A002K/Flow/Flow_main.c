@@ -49,17 +49,19 @@ unsigned char DTMFToChar(unsigned char Digi){
 }
 
 void SendQueueDataToFlash(int *CQ){
-  unsigned char BUF[512];
+  unsigned char BUF[256];
   unsigned char *CTIQueueAddr=(unsigned char *)CQ;
   unsigned int CTIQueueSize=sizeof(CTIMessageQueue);
   
   for(int i=0;i<CTIQueueSize;i++){
-    BUF[i%512]= (unsigned char)*CTIQueueAddr;
-    if (i%512==0){
+    BUF[i%256]= (unsigned char)*CTIQueueAddr;
+    if (i%1024==0){
       flash_erase_multi_segments(QueueData_Addr+i,1);
-      flash_erase_multi_segments(QueueData_Addr+i+512,1);
-    }else if (i%512==511){
-      flash_write_Block(QueueData_Addr-512,BUF,512);
+    }else if ((i%256==255)||(i==CTIQueueSize-1)){          //2016/04/10.最後一個block未寫造成Queue長度錯亂
+      flash_write_Block(QueueData_Addr+i-255,BUF,256);
+      for(int j=0;j<256;j++){   //每寫完一次要把Buf清空
+        BUF[j]=0;
+      }
     }
     *CTIQueueAddr++;
   }
