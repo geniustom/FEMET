@@ -3,10 +3,10 @@
 
 
 typedef struct{
-    unsigned char    *Buffer;
     unsigned int    r_front,r_rear;
     unsigned int    UsedByte;
     unsigned int    Length;
+    unsigned char    *Buffer;
 }RANG_BUFFER;
 
 #define String unsigned char *;

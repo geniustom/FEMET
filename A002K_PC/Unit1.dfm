@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 224
   Top = 164
   BorderStyle = bsDialog
-  Caption = #23429#31471#20027#27231#35373#23450#31243#24335'_Ver 4.2'
+  Caption = #23429#31471#20027#27231#35373#23450#31243#24335'_Ver 4.3'
   ClientHeight = 397
   ClientWidth = 473
   Color = clBtnFace
@@ -3518,7 +3518,7 @@ object Form1: TForm1
     XonChar = #17
     XoffChar = #19
     ReplacedChar = #0
-    ReadIntervalTimeout = 5
+    ReadIntervalTimeout = 20
     ReadTotalTimeoutMultiplier = 0
     ReadTotalTimeoutConstant = 0
     WriteTotalTimeoutMultiplier = 0
