@@ -67,8 +67,8 @@ void SOPMode2(){
 
 void CheckSOPMode(){
   if(SystemConfig_DebugModeEnable==1){
-    for(int i=0;i<200;i++){
-      Delayms(10);
+    for(int i=0;i<250;i++){
+      Delayms(20);
     }
     SOPMode2();
     return;
