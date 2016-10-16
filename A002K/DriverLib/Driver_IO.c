@@ -9,7 +9,7 @@ void InitPortOutput(){
 void InitPortDirection(){
   P1DIR = 0x00;     //設定為輸入
   P2DIR = 0x00;     //設定為輸入
-  P3DIR = RTC_SDA | RTC_SCL |CON_Buzzer | CON_SPK | CON_DCDC;
+  P3DIR = CON_ToneDetEn | RTC_SDA | RTC_SCL | CON_Buzzer | CON_SPK | CON_DCDC;
   //P4DIR = RF_C0 | RF_C1 | RF_C2 | RF_C3 | RF_C4 | RF_C5 | RF_C6 | RF_C7;      //設定為輸出
   P5DIR = CON_PorG | CON_MIC;                                                   //設定為輸出
   P6DIR = LED_AC | LED_DC | LED_Call | LED_RFLow | LED_LineErr | LED_CallErr;   //設定為輸出
@@ -64,7 +64,8 @@ void SetPinSync(IOFlag *Flag){
 //----------------------P3--------------------
   P3OUT=
         (Flag->TentelOn * CON_DCDC)|
-        (Flag->SpeakState * CON_SPK);
+        (Flag->SpeakState * CON_SPK)|
+        ((1-Flag->EnableToneDet) * CON_ToneDetEn); //Tone偵測IC的Enable pin  En:0 Dis:1
         
   if (Flag->BuzzerState==1){
     if (Flag->BuzzerOn==1){P3OUT |= CON_Buzzer;}

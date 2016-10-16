@@ -13,6 +13,7 @@
 #define DET_MeaDevice BIT5    //I       High：華廣血糖計，Low：百略血壓計
 #define DET_Line      BIT7    //I       局線是否偵測到48V
 //--------------------------------P3-------------------------
+#define CON_ToneDetEn BIT0    //O	Tone偵測IC的Enable pin  En:0 Dis:1
 #define RTC_SDA       BIT1    //I/O	RTC的SDA
 #define RTC_SCL       BIT2    //O	RTC的SCL
 #define CON_DCDC      BIT3    //O	DC/DC的RESET PIN

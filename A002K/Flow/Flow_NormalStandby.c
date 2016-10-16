@@ -86,6 +86,7 @@ void NormalStandBy_Enter(){
   DriverFlag.MicState=0;
   DriverFlag.SpeakState=0;
   DriverFlag.KeepAllAlarm=0;
+  DriverFlag.EnableToneDet=0;
   Tentel_HangUp();
 }
 

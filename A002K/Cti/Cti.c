@@ -32,10 +32,8 @@ void SendStopCode(unsigned char NeedRefreshTime){ //送出14碼9
 
 //回傳1:在只定時間內等到了DTMF 回傳0:等不到
 unsigned char WaitForDTMF(unsigned long TimeOut,unsigned long DelayAfterGetDTMF,unsigned char DTMF){ 
-
   unsigned int BreakWaiting=0;
   unsigned long WaitTime=0;
-  
   Delayms(300);            //避免其他Tone音還沒結束
   Tentel_ClearDTMFBuf();   //清除BUFFER
   
@@ -272,6 +270,7 @@ unsigned char DataIn(){
     Delayms(100);  //開喇叭DELAY
     EnableSpeaker(SystemConfig_SPK_Voice);
     long IVRTimeOut=3000; //300秒
+    DriverFlag.EnableToneDet=1;
     while((Tentel_GetDTMFDigi()!=3)&&(DriverFlag.PhoneBusy==0)&&IVRTimeOut>0){//接收3的訊息,等待播放語音,忙音掛掉
       Tentel_ClearDTMFBuf();   //清除BUFFER
       IVRTimeOut--;
@@ -297,6 +296,7 @@ unsigned char DataOut(unsigned char TelID){
   EnableSpeaker(SystemConfig_SPK_Dial );
   Delayms(10);
   //==============================================等待撥號音
+  DriverFlag.EnableToneDet=1;
   Tentel_PickUp();
   Delayms(2000);
 
@@ -330,6 +330,7 @@ unsigned char DataOut(unsigned char TelID){
     if(Num[i]!=0xff){ CodeIndex++;}
   }
   //==============================================撥出號碼
+  DriverFlag.EnableToneDet=0;
   Tentel_SetNumber(Num,CodeIndex);
   Delayms(150);
   Tentel_DialOut();

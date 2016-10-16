@@ -200,6 +200,7 @@ typedef struct{
 //-----------------------忙音檢測/撥號音檢測--------------
     unsigned char PhoneBusy;
     unsigned char NowIsDialTone;
+    unsigned char EnableToneDet;
 //-----------------------RD模式---------------------------
     unsigned char RDMode;
     unsigned char RDModeStateChange;

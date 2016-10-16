@@ -18,6 +18,7 @@ void SOPMode1(){
     Delayms(2000);
     
     unsigned char SOPDTMF[12]={1,2,3,4,5,6,7,8,9,'*',0,'#'};
+    DriverFlag.EnableToneDet=0;
     Tentel_SendDTMFList(SOPDTMF,12);   
 /*  
     Tentel_SendKey(1);   Delayms(500);
@@ -37,6 +38,8 @@ void SOPMode1(){
     
     Delayms(3000);
     EnableP1P2Int();
+    Delayms(3000);
+    DriverFlag.EnableToneDet=1;
     
     while(1){
       Delayms(10);

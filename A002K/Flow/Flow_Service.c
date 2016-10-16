@@ -96,6 +96,7 @@ void Service_Work(){
     return;
   }
   //==============================================拿起話筒等待一秒，一秒內檢查話筒是否拿起
+  DriverFlag.EnableToneDet=1;
   GYTentel_State.DetDialTone=0;      //復位
   Tentel_PickUp();
   if(PhoneIsTake(1000)==1){
@@ -116,6 +117,7 @@ void Service_Work(){
     GoToFlow(State_NormalStandBy);
     return;
   }
+  DriverFlag.EnableToneDet=0;
   //==============================================若等到了才撥號
   Service_CallOut();
   EnableSpeaker(SystemConfig_SPK_Talk);
@@ -123,6 +125,7 @@ void Service_Work(){
   unsigned char PhoneAlreadyPickup; //偵測在撥號前，話桶是否已經拿起
   unsigned char DTMFData;           //偵測對方是否送出*或#
   GYTentel_State.ISBusy=0;          //先關閉先前國洋輸出的BUSY CMD
+  DriverFlag.EnableToneDet=1;
   while((DriverFlag.CancelPress==0)||(DriverFlag.PhoneBusy==1)){
     //============================================================================偵測是否按下* (開起喇叭)
     DTMFData=Tentel_GetDTMFDigi();
